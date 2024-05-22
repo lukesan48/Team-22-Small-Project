@@ -15,14 +15,14 @@
 	{
 		// Find if already exists a username w/ the same name
 		$sql = "SELECT * FROM Users WHERE Login=?";
-		$stmt = $conn->prepare($sql); // Fixed bad syntax here
+		$stmt = $conn->prepare($sql);
 		$stmt->bind_param("s", $login);
 		$stmt->execute();
 		$result = $stmt->get_result();
 
 		// If not, insert into Users table
 		if($result->num_rows == 0) {
-			$stmt = $conn->prepare("INSERT into Users (firstName, lastName, login, password) VALUES (?, ?, ?, ?)");
+			$stmt = $conn->prepare("INSERT INTO Users (FirstName, LastName, Login, Password) VALUES (?, ?, ?, ?)");
 			$stmt->bind_param("ssss", $firstName, $lastName, $login, $password);
 			$stmt->execute();
 			returnWithInfo($firstName, $lastName, $stmt->insert_id);
