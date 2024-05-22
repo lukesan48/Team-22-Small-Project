@@ -24,7 +24,7 @@
 
 		// If not, insert into Users table
 		if($result->num_rows == 0) {
-			$stmt = $conn->prepare("INSERT INTO Users (FirstName, LastName, Login, Password) VALUES (?, ?, ?, ?)");
+			$stmt = $conn->prepare("INSERT INTO Users (firstName, lastName, login, password) VALUES (?, ?, ?, ?)");
 			$stmt->bind_param("ssss", $firstName, $lastName, $login, $password);
 			$stmt->execute();
 			returnWithInfo("User successfully created");
