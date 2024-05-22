@@ -13,21 +13,22 @@
 	} 
 	else
 	{
-		// Find if already exists a username w/ same name
+		// Find if already exists a username w/ the same name
 		$sql = "SELECT * FROM Users WHERE Login=?";
-		$stmt-> $conn->prepare($sql);
-		$stmt->execute();
+		$stmt = $conn->prepare($sql); // Fixed bad syntax here
 		$stmt->bind_param("s", $login);
 		$stmt->execute();
-		$rows = mysqli_num_rows($result);
 		$result = $stmt->get_result();
 
 		// If not, insert into Users table
 		if($result->num_rows == 0) {
-			$stmt = $conn->prepare("INSERT INTO Users (firstName, lastName, login, password) VALUES (?, ?, ?, ?)");
+			$stmt = $conn->prepare("INSERT into Users (firstName, lastName, login, password) VALUES (?, ?, ?, ?)");
 			$stmt->bind_param("ssss", $firstName, $lastName, $login, $password);
 			$stmt->execute();
-			returnWithInfo("User successfully created");
+			returnWithInfo($firstName, $lastName, $stmt->insert_id);
+
+			$stmt->close();
+			$conn->close();
 		}
 
 		// Else, just don't
@@ -35,8 +36,7 @@
 			returnWithError("Username taken");
 		}
 		
-		$stmt->close();
-		$conn->close();
+
 
 	}
 
