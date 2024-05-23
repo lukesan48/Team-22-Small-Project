@@ -4,49 +4,58 @@ body {
     align-items: center;
 }
 
-#signUpDiv {
+#signUpDiv,
+#loginDiv {
     text-align: center;
+    border: 1px solid black;
+    border-radius: 8px;
+
 }
 
-#signUpDiv input {
+#signUpDiv input,
+#loginDiv input {
+    margin: 2vh;
     text-align: center;
-    margin-top: 1vh;
+    margin-top: 2vh;
     border: 2px solid;
-    border-radius: 1vh;
+    border-radius: 3vh;
     border-color: black;
-}
-
-#name1 {
-    margin-top: 0;
-    border-top: 1px solid;
+    margin: 0.5vh 4vh;
 }
 
 #inner-title {
     display: block;
-    font-weight: 800;
+    font-weight: 600;
     font-size: 3vh;
     border-bottom: 1px solid;
-    padding-bottom: 2vh;
+    padding: 1vh 2vh;
+    margin-bottom: 2vh;
+    background-color: black;
+    color: white;
+
 }
 
-#signUpButton {
+#signUpButton,
+#loginButton {
     border: 2px solid;
     margin-top: 2vh;
     border-color: black;
     background-color: transparent;
     border-radius: 1rem;
     padding: 0 1rem;
+    margin-bottom: 2vh;
 }
 
-#signUpButton:hover {
+#signUpButton:hover,
+#loginButton {
     border: 2px solid;
-    margin-top: 2vh;
     border-color: black;
     background-color: rgb(255, 157, 157);
     border-radius: 1rem;
 }
 
-#signUpButton:active {
+#signUpButton:active,
+#loginButton {
     border: 2px solid;
     margin-top: 2vh;
     border-color: black;
