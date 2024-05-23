@@ -130,7 +130,7 @@ function doLogout() {
 	window.location.href = "index.html";
 }
 
-// Modify to Add contacts - C
+// Modify to Add contacts - J
 function addColor() {
 	let newColor = document.getElementById("colorText").value;
 	document.getElementById("colorAddResult").innerHTML = "";
