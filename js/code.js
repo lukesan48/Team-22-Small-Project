@@ -85,7 +85,7 @@ function readCookie() {
 	}
 }
 
-// COMPLETED / look over; Sign up Function - C
+// COMPLETED -> REVIEW; Sign up Function - C
 function doSignUp() {
 
 	let firstName = document.getElementById("name1").value;
