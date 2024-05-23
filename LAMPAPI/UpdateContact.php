@@ -3,7 +3,8 @@
 
     $phone = $inData["phone"];
     $email = $inData["email"];
-    $newName = $inData["newName"];
+    $firstName = $inData["firstName"];
+    $lastName = $inData["lastName"];
     $userId = $inData["userId"];
 
     // Database connection
@@ -15,11 +16,11 @@
     else
     {
         // Prepare statement
-        $stmt = $conn->prepare("UPDATE Contacts SET Name = ?, Phone = ?, Email = ? WHERE UserID = ?");
+        $stmt = $conn->prepare("UPDATE Contacts SET FirstName = ?, LastName = ?, Phone = ?, Email = ? WHERE UserID = ?");
         if (!$stmt) {
             returnWithError($conn->error);
         } else {
-            $stmt->bind_param("sssi", $newName, $phone, $email, $userId);
+            $stmt->bind_param("ssssi", $firstName, $lastName, $phone, $email, $userId);
             $stmt->execute();
 
             if ($stmt->affected_rows > 0) {
