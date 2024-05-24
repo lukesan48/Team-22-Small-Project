@@ -26,16 +26,19 @@
 	<div id="accessUIDiv">
 		<br />
 
-		<input type="text" id="searchText" placeholder="Color To Search For" />
-		<button type="button" id="searchColorButton" class="buttons" onclick="searchColor();"> Search Color
+		<input type="text" id="searchContactText" placeholder="Search First/Last Name" />
+		<button type="button" id="searchContactButton" class="buttons" onclick="searchContact();"> Search Contact
 		</button><br />
-		<span id="colorSearchResult"></span>
-		<p id="colorList">
-		</p><br /><br />
+		<span id="contactSearchResult"></span>
+		<div id="contactList">
+		</div><br /><br />
 
-		<input type="text" id="colorText" placeholder="Color To Add">
-		<button type="button" id="addColorButton" class="buttons" onclick="addColor();"> Add Color </button><br />
-		<span id="colorAddResult"></span>
+		<input type="text" id="addFirstNameText" placeholder="First Name" required>
+		<input type="text" id="addLastNameText" placeholder="Last Name" required>
+		<input type="tel" id="addPhoneNumberText" placeholder="Phone Number">
+		<input type="email" id="addEmailText" placeholder="Email">
+		<button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button><br />
+		<span id="addContactResult"></span>
 	</div>
 
 </body>

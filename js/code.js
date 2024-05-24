@@ -130,15 +130,21 @@ function doLogout() {
 	window.location.href = "index.html";
 }
 
-// Modify to Add contacts - J
-function addColor() {
-	let newColor = document.getElementById("colorText").value;
-	document.getElementById("colorAddResult").innerHTML = "";
+// COMPLETED -> REVIEW; Modify to Add contacts - J
+function addContact() {
+	let newFirstName = document.getElementById("addFirstNameText").value;
+	let newLastName = document.getElementById("addLastNameText").value;
+	let newPhoneNumber = document.getElementById("addPhoneNumberText").value;
+	let newEmail = document.getElementById("addEmailText").value;
+	document.getElementById("addContactResult").innerHTML = "";
 
-	let tmp = { color: newColor, userId, userId };
+	let tmp = {
+		firstName: newFirstName, lastName: newLastName,
+		phone: newPhoneNumber, email: newEmail, userId: userId
+	};
 	let jsonPayload = JSON.stringify(tmp);
 
-	let url = urlBase + '/AddColor.' + extension;
+	let url = urlBase + '/AddContact.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -146,28 +152,28 @@ function addColor() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("colorAddResult").innerHTML = "Color has been added";
+				document.getElementById("addContactResult").innerHTML = "Contact has been added";
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch (err) {
-		document.getElementById("colorAddResult").innerHTML = err.message;
+		document.getElementById("addContactResult").innerHTML = err.message;
 	}
 
 }
 
-// Modify to search contacts - J
-function searchColor() {
-	let srch = document.getElementById("searchText").value;
-	document.getElementById("colorSearchResult").innerHTML = "";
+// COMPLETED -> REVIEW; Modify to search contacts - J
+function searchContact() {
+	let newSearchContact = document.getElementById("searchContactText").value;
+	document.getElementById("contactSearchResult").innerHTML = "";
 
-	let colorList = "";
-
-	let tmp = { search: srch, userId: userId };
+	let tmp = {
+		search: newSearchContact, userId: userId
+	};
 	let jsonPayload = JSON.stringify(tmp);
 
-	let url = urlBase + '/SearchColors.' + extension;
+	let url = urlBase + '/SearchContact.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -175,23 +181,38 @@ function searchColor() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("colorSearchResult").innerHTML = "Color(s) has been retrieved";
+
+				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
+				const contactList = document.getElementById("contactList");
+				contactList.innerHTML = "";
 				let jsonObject = JSON.parse(xhr.responseText);
 
-				for (let i = 0; i < jsonObject.results.length; i++) {
-					colorList += jsonObject.results[i];
-					if (i < jsonObject.results.length - 1) {
-						colorList += "<br />\r\n";
-					}
+				for (const contact of jsonObject.results) {
+					const firstNameText = document.createTextNode(contact.FirstName);
+					const lastNameText = document.createTextNode(contact.LastName);
+					const phoneNumberText = document.createTextNode(contact.Phone);
+					const emailText = document.createTextNode(contact.Email);
+					const firstNameSpan = document.createElement("span");
+					const lastNameSpan = document.createElement("span");
+					const phoneNumberSpan = document.createElement("span");
+					const emailSpan = document.createElement("span");
+					firstNameSpan.appendChild(firstNameText);
+					lastNameSpan.appendChild(lastNameText);
+					phoneNumberSpan.appendChild(phoneNumberText);
+					emailSpan.appendChild(emailText);
+					const contactDiv = document.createElement("div");
+					contactDiv.appendChild(firstNameSpan);
+					contactDiv.appendChild(lastNameSpan);
+					contactDiv.appendChild(phoneNumberSpan);
+					contactDiv.appendChild(emailSpan);
+					contactList.appendChild(contactDiv);
 				}
-
-				document.getElementsByTagName("p")[0].innerHTML = colorList;
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch (err) {
-		document.getElementById("colorSearchResult").innerHTML = err.message;
+		document.getElementById("contactSearchResult").innerHTML = err.message;
 	}
 
 }
