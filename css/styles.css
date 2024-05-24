@@ -49,7 +49,7 @@ body {
 }
 
 #signUpButton:hover,
-#loginButton {
+#loginButton:hover {
     border: 2px solid;
     border-color: black;
     background-color: rgb(255, 157, 157);
@@ -57,7 +57,7 @@ body {
 }
 
 #signUpButton:active,
-#loginButton {
+#loginButton:active {
     border: 2px solid;
     margin-top: 2vh;
     border-color: black;

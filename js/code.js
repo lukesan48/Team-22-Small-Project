@@ -41,7 +41,7 @@ function doLogin() {
 
 				saveCookie();
 
-				window.location.href = "color.html";
+				window.location.href = "Contacts.html";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -111,7 +111,18 @@ function doSignUp() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("signUpResult").innerHTML = "Color has been added";
+
+				let jsonObject = JSON.parse(xhr.responseText);
+				userId = jsonObject.id;
+
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
+
+				saveCookie();
+
+				document.getElementById("signUpResult").innerHTML = "User has been added";
+
+				window.location.href = "Contacts.html";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -153,6 +164,8 @@ function addContact() {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
 				document.getElementById("addContactResult").innerHTML = "Contact has been added";
+
+
 			}
 		};
 		xhr.send(jsonPayload);
