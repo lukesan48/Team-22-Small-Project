@@ -112,14 +112,6 @@ function doSignUp() {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
 
-				let jsonObject = JSON.parse(xhr.responseText);
-				userId = jsonObject.id;
-
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
-
-				saveCookie();
-
 				document.getElementById("signUpResult").innerHTML = "User has been added";
 
 				window.location.href = "Contacts.html";
@@ -164,7 +156,6 @@ function addContact() {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
 				document.getElementById("addContactResult").innerHTML = "Contact has been added";
-
 
 			}
 		};
@@ -324,7 +315,11 @@ function deleteContact() {
 
 // DOM events
 function init() {
+	let login = document.getElementById("loginButton");
+	login.addEventListener("click", doLogin);
 
+	let signUp = document.getElementById("signUpButton");
+	signUp.addEventListener("click", doSignUp);
 	// CRUD operations
 	let addNewContact = document.getElementById("addContact");
 	addNewContact.addEventListener("click", testAdd);
