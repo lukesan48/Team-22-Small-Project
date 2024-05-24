@@ -8,7 +8,7 @@ body {
 #loginDiv {
     text-align: center;
     border: 1px solid black;
-    border-radius: 8px;
+    border-radius: 1.2rem;
 
 }
 
@@ -32,6 +32,8 @@ body {
     margin-bottom: 2vh;
     background-color: black;
     color: white;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 
 }
 
@@ -62,4 +64,14 @@ body {
     background-color: black;
     border-radius: 1rem;
     color: white;
+}
+
+#contact-table {
+    transition: height 2s ease-out;
+}
+
+footer {
+    display: block;
+    position: fixed;
+    bottom: 0%;
 }

@@ -262,3 +262,68 @@ function editContact() {
 	}
 
 }
+function testAdd() {
+	let newContact = document.getElementById("tableBody");
+
+	let row = document.createElement("tr");
+
+	let c1 = document.createElement("td");
+	let c2 = document.createElement("td");
+
+	let c3 = document.createElement("td");
+	let c4 = document.createElement("td");
+
+	let c5 = document.createElement("td");
+	let c6 = document.createElement("td");
+
+	c1.innerText = "John"
+	c2.innerText = "Doe"
+	c3.innerText = "John@Doe.com"
+	c4.innerText = "000 000 0000"
+
+	var btn = document.createElement('input');
+	btn.type = "button";
+	btn.className = "btn";
+	btn.value = "Edit";
+	c5.appendChild(btn);
+
+	var btn = document.createElement('input');
+	btn.type = "button";
+	btn.className = "btn";
+	btn.value = "Delete";
+	c6.appendChild(btn);
+
+	row.appendChild(c1);
+	row.appendChild(c2);
+	row.appendChild(c3);
+	row.appendChild(c4);
+
+	row.appendChild(c5);
+	row.appendChild(c6);
+
+	newContact.appendChild(row);
+
+}
+
+function deleteContact() {
+
+}
+
+// DOM events
+function init() {
+
+	// CRUD operations
+	let addNewContact = document.getElementById("addContact");
+	addNewContact.addEventListener("click", testAdd);
+
+	let searchNewContact = document.getElementsByClassName("deleteContact");
+	searchNewContact.addEventListener("click", searchContact, false);
+
+	let editAContact = document.getElementsByClassName("edit");
+	editAContact.addEventListener("click", editContact, false);
+
+	let deleteAContact = document.getElementsByClassName("delete");
+	deleteAContact.addEventListener("click", deleteContact, false);
+}
+
+window.addEventListener("load", init);
