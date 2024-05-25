@@ -185,38 +185,66 @@ function searchContact() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-
 				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
-				const contactList = document.getElementById("contactList");
-				contactList.innerHTML = "";
 				let jsonObject = JSON.parse(xhr.responseText);
-
-				for (const contact of jsonObject.results) {
-					const firstNameText = document.createTextNode(contact.FirstName);
-					const lastNameText = document.createTextNode(contact.LastName);
-					const phoneNumberText = document.createTextNode(contact.Phone);
-					const emailText = document.createTextNode(contact.Email);
-					const firstNameSpan = document.createElement("span");
-					const lastNameSpan = document.createElement("span");
-					const phoneNumberSpan = document.createElement("span");
-					const emailSpan = document.createElement("span");
-					firstNameSpan.appendChild(firstNameText);
-					lastNameSpan.appendChild(lastNameText);
-					phoneNumberSpan.appendChild(phoneNumberText);
-					emailSpan.appendChild(emailText);
-					const contactDiv = document.createElement("div");
-					contactDiv.appendChild(firstNameSpan);
-					contactDiv.appendChild(lastNameSpan);
-					contactDiv.appendChild(phoneNumberSpan);
-					contactDiv.appendChild(emailSpan);
-					contactList.appendChild(contactDiv);
-				}
+				showContactTable(jsonObject.results);
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch (err) {
 		document.getElementById("contactSearchResult").innerHTML = err.message;
+	}
+}
+
+function showContactTable(contacts) {
+	const contactTable = document.getElementById("contactTable");
+	contactTable.innerHTML = "";
+
+	const head = document.createElement("thead");
+	const body = document.createElement("tbody");
+
+	contactTable.appendChild(head);
+	contactTable.appendChild(body);
+
+	const hrow = document.createElement("tr");
+
+	const hc1 = document.createElement("th");
+	const hc2 = document.createElement("th");
+	const hc3 = document.createElement("th");
+	const hc4 = document.createElement("th");
+
+	hc1.innerText = "First Name";
+	hc2.innerText = "Last Name";
+	hc3.innerText = "Phone";
+	hc4.innerText = "Email";
+
+	hrow.appendChild(hc1);
+	hrow.appendChild(hc2);
+	hrow.appendChild(hc3);
+	hrow.appendChild(hc4);
+
+	head.appendChild(hrow);
+
+	for (const contact of contacts) {
+		const row = document.createElement("tr");
+
+		const c1 = document.createElement("td");
+		const c2 = document.createElement("td");
+		const c3 = document.createElement("td");
+		const c4 = document.createElement("td");
+
+		c1.innerText = contact.FirstName;
+		c2.innerText = contact.LastName;
+		c3.innerText = contact.Phone;
+		c4.innerText = contact.Email;
+
+		row.appendChild(c1);
+		row.appendChild(c2);
+		row.appendChild(c3);
+		row.appendChild(c4);
+
+		body.appendChild(row);
 	}
 }
 
