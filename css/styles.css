@@ -1,8 +1,236 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    letter-spacing: -0.5px;
+    /* display: flex; */
+    padding: 1rem calc(2/12*100%) 1rem calc(2/12*100%);
 }
+
+/*      NAVIGATION STYLING       */
+#website-nav {
+    /* border: 1px solid black; */
+    display: flex;
+    width: 100%;
+    font-size: 1.2rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-top: 1em;
+}
+
+.website-name {
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.logo {
+    display: flex;
+}
+
+#website-nav li,
+.action-buttons li {
+    list-style: none;
+}
+
+.items,
+.log-in a {
+    display: flex;
+    /* border: 1px solid black; */
+    margin-right: 1rem;
+    flex: 1;
+    flex-direction: row-reverse;
+}
+
+.log-in a {
+    text-transform: uppercase;
+    flex-direction: row;
+}
+
+.items:hover,
+.log-in:hover {
+    text-decoration: underline;
+}
+
+.about-us a,
+.log-in a {
+    color: black;
+}
+
+.enter-link {
+    background-color: black;
+    border-radius: 100rem;
+}
+
+.link a {
+    font-weight: 500;
+    text-decoration: none;
+    padding-right: 5em;
+}
+
+.button>a {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: flex;
+    padding: 0.6rem 1.2rem;
+    color: white;
+}
+
+.add-contact>button {
+    background-color: black;
+    font-size: 0.9rem;
+    font-weight: 400;
+    display: flex;
+    padding: 0.4rem 0.7rem;
+    color: white;
+    border-radius: 0.5rem;
+    padding-top: 0.7em;
+    border: none;
+    right: 0;
+}
+
+.add-contact {
+    padding-left: 14em;
+}
+
+
+/* ENTER ICON SVG STYLING WITHIN LOGIN BUTTON */
+.svg {
+    vertical-align: middle;
+    padding-top: 0.1rem;
+    padding-left: 0.3rem;
+}
+
+.svg>path {
+    stroke-width: 1.2;
+}
+
+.add-contact-button {
+    padding-left: 0.5rem;
+}
+
+/*      MAIN CONTENT STYLING      */
+.main-content {
+    display: flex;
+    height: 80vh;
+}
+
+hr {
+    width: 80%;
+    margin: 2em;
+    border: none;
+    height: 1.3px;
+    color: black;
+    background-color: black;
+}
+
+/* HEADER SECTION */
+
+.action-buttons {
+    display: flex;
+}
+
+.action-buttons ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.get-started {
+    display: flex;
+    width: 10.2rem;
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid black; */
+    width: 50%;
+    flex-direction: column;
+}
+
+.main-content .contactDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid black; */
+    width: 50%;
+}
+
+.content h1 {
+    line-height: 3em;
+}
+
+#last-two-sentences {
+    line-height: 2.7em;
+}
+
+#sentence-1 {
+    flex-direction: column;
+    letter-spacing: -5px;
+    font-size: 3.3em;
+    font-weight: 620;
+}
+
+#sentence-2 {
+    letter-spacing: -3px;
+    font-weight: 300;
+    font-size: 3em;
+}
+
+
+#sentence-3 {
+    letter-spacing: -3px;
+    font-weight: 100;
+    font-size: 2.5em;
+    font-style: italic;
+}
+
+/* CONTACT TABLE */
+
+.contact-table {
+    text-align: center;
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 0.5em;
+    padding: 1.2rem 1.5rem;
+
+}
+
+.table-header td {
+    padding-bottom: 2.5em;
+}
+
+.table-header td:nth-child(1) {
+    padding-bottom: 2.5em;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+thead tr:nth-child(2) th {
+    padding-bottom: 1em;
+}
+
+.table-actions td {
+    width: 10px;
+}
+
+.table-body tr>td {
+    padding: 0;
+    padding-bottom: 1em;
+    border-top: 1px solid black;
+    padding-top: 1em;
+}
+
+.table-contact-info td {
+    width: 2em;
+}
+
+#first-section>td {
+    border: none;
+}
+
+/*  FORM DIVS */
 
 #signUpDiv,
 #loginDiv {
@@ -66,12 +294,11 @@ body {
     color: white;
 }
 
-#contact-table {
-    transition: height 2s ease-out;
-}
-
-footer {
+.footer {
     display: block;
     position: fixed;
     bottom: 0%;
+    text-align: center;
+    left: 0;
+    width: 100%;
 }
