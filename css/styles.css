@@ -85,7 +85,6 @@ body {
     border-radius: 0.5rem;
     padding-top: 0.7em;
     border: none;
-    right: 0;
 }
 
 .add-contact {
@@ -123,6 +122,16 @@ hr {
     background-color: black;
 }
 
+hr[class="search-line"] {
+    padding: 0;
+    margin: 1em;
+    margin-top: 0;
+    width: 55%;
+    margin-right: 8rem;
+    height: 1px;
+}
+
+
 /* HEADER SECTION */
 
 .action-buttons {
@@ -155,6 +164,7 @@ hr {
     justify-content: center;
     /* border: 1px solid black; */
     width: 50%;
+    flex-direction: column;
 }
 
 .content h1 {
@@ -185,6 +195,7 @@ hr {
     font-size: 2.5em;
     font-style: italic;
 }
+
 
 /* CONTACT TABLE */
 
@@ -228,6 +239,38 @@ thead tr:nth-child(2) th {
 
 #first-section>td {
     border: none;
+}
+
+
+/* SEARCH AREA */
+.search-model {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+    font-family: sans-serif;
+}
+
+.search-key-text {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.search-key-text span {
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.fake-search-button {
+    background-color: black;
+    margin-left: 2em;
+    color: white;
+    border: none;
+    border-radius: 100em;
+    padding: 0.8em 1.2em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
 /*  FORM DIVS */
