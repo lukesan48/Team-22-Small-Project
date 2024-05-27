@@ -32,6 +32,7 @@ function doLogin() {
 				userId = jsonObject.id;
 
 				if (userId < 1) {
+					console.log(userId);
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
@@ -41,7 +42,7 @@ function doLogin() {
 
 				saveCookie();
 
-				window.location.href = "Contacts.html";
+				window.location.href = "color.html";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -84,23 +85,22 @@ function readCookie() {
 		//		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
 }
-
-// COMPLETED -> REVIEW; Sign up Function - C
+// <-------------------- SIGN UP FUNCTION --------------------->
+// COMPLETED; Sign up Function - C
 function doSignUp() {
-
 	let firstName = document.getElementById("name1").value;
 	let lastName = document.getElementById("name2").value;
 	let newLogin = document.getElementById("signUpName").value;
 	let password = document.getElementById("signUpPassword").value;
-	//	var hash = md5( password );
 
 	document.getElementById("signUpResult").innerHTML = "";
 
 	let tmp = {
-		firstName: firstName, lastName: lastName,
-		login: newLogin, password: password
+		firstName: firstName,
+		lastName: lastName,
+		login: newLogin,
+		password: password
 	};
-	//	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify(tmp);
 
 	let url = urlBase + '/SignUp.' + extension;
@@ -108,23 +108,24 @@ function doSignUp() {
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
 
-				document.getElementById("signUpResult").innerHTML = "User has been added";
+				setTimeout(window.location.href = "Login.html", 5000);
+				document.getElementById("signUpResult").innerHTML = "User has been added!";
+				saveCookie();
 
-				window.location.href = "Contacts.html";
 			}
 		};
 		xhr.send(jsonPayload);
-	}
-	catch (err) {
+	} catch (err) {
 		document.getElementById("signUpResult").innerHTML = err.message;
 	}
-
 }
 
+// <-------------------- LOUGOUT USER --------------------->
 function doLogout() {
 	userId = 0;
 	firstName = "";
@@ -132,8 +133,8 @@ function doLogout() {
 	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 	window.location.href = "index.html";
 }
-
-// COMPLETED -> REVIEW; Modify to Add contacts - J
+// <-------------------- ADD (CREATE) CONTACT --------------------->
+// COMPLETED; Modify to Add contacts - J
 function addContact() {
 	let newFirstName = document.getElementById("addFirstNameText").value;
 	let newLastName = document.getElementById("addLastNameText").value;
@@ -145,6 +146,7 @@ function addContact() {
 		firstName: newFirstName, lastName: newLastName,
 		phone: newPhoneNumber, email: newEmail, userId: userId
 	};
+
 	let jsonPayload = JSON.stringify(tmp);
 
 	let url = urlBase + '/AddContact.' + extension;
@@ -156,7 +158,9 @@ function addContact() {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
 				document.getElementById("addContactResult").innerHTML = "Contact has been added";
-
+				setTimeout(function () {
+					document.getElementById("addContactResult").innerHTML = "";
+				}, 3000);
 			}
 		};
 		xhr.send(jsonPayload);
@@ -166,7 +170,7 @@ function addContact() {
 	}
 
 }
-
+// <-------------------- SEARCH (READ) CONTACT(s) --------------------->
 // COMPLETED -> REVIEW; Modify to search contacts - J
 function searchContact() {
 	let newSearchContact = document.getElementById("searchContactText").value;
@@ -186,6 +190,10 @@ function searchContact() {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
 				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
+				setTimeout(function () {
+					document.getElementById("contactSearchResult").innerHTML = "";
+				}, 3000);
+
 				let jsonObject = JSON.parse(xhr.responseText);
 				showContactTable(jsonObject.results);
 			}
@@ -198,6 +206,7 @@ function searchContact() {
 }
 
 function showContactTable(contacts) {
+
 	const contactTable = document.getElementById("contactTable");
 	contactTable.innerHTML = "";
 
@@ -209,15 +218,19 @@ function showContactTable(contacts) {
 
 	const hrow = document.createElement("tr");
 
+	// Changed to have only one column
 	const hc1 = document.createElement("th");
 	const hc2 = document.createElement("th");
 	const hc3 = document.createElement("th");
 	const hc4 = document.createElement("th");
 
-	hc1.innerText = "First Name";
-	hc2.innerText = "Last Name";
-	hc3.innerText = "Phone";
-	hc4.innerText = "Email";
+	hc1.innerText = "Name";
+	hc2.innerText = "Phone";
+	hc3.innerText = "Email";
+	hc4.innerText = "Action";
+
+	hc1.setAttribute("colspan", "2");
+	hc4.setAttribute("colspan", "2");
 
 	hrow.appendChild(hc1);
 	hrow.appendChild(hc2);
@@ -225,45 +238,102 @@ function showContactTable(contacts) {
 	hrow.appendChild(hc4);
 
 	head.appendChild(hrow);
+	let dataID = 0;
+	for (let contact of contacts) {
 
-	for (const contact of contacts) {
 		const row = document.createElement("tr");
+
+		row.setAttribute("id", "data-row-" + dataID++);
 
 		const c1 = document.createElement("td");
 		const c2 = document.createElement("td");
 		const c3 = document.createElement("td");
 		const c4 = document.createElement("td");
+		const c5 = document.createElement("td");
+		const c6 = document.createElement("td");
+
+		// edit and delete buttons
 
 		c1.innerText = contact.FirstName;
 		c2.innerText = contact.LastName;
 		c3.innerText = contact.Phone;
 		c4.innerText = contact.Email;
 
+		var editButton = document.createElement("button");
+		editButton.setAttribute("class", "editBtn");
+		editButton.setAttribute("onclick", "editContactForm(this)");
+		editButton.innerHTML = "edit";
+
+		var deleteButton = document.createElement("button");
+		deleteButton.setAttribute("class", "deleteBtn");
+		deleteButton.setAttribute("onclick", "deleteContact(this)");
+		deleteButton.innerHTML = "delete";
+
+		c5.appendChild(editButton);
+		c6.appendChild(deleteButton);
 		row.appendChild(c1);
 		row.appendChild(c2);
 		row.appendChild(c3);
 		row.appendChild(c4);
+		row.appendChild(c5);
+		row.appendChild(c6);
 
 		body.appendChild(row);
 	}
 }
+// <-------------------- DELETE CONTACT --------------------->
+function deleteContact(button) {
+	// Find the parent table row
+	let row = button.closest('tr');
 
-function editContact() {
-	userId = 0;
-	firstName = "";
-	lastName = "";
+	// Get the content of the first and second <td> elements
+	let firstName = row.cells[0].textContent;
+	let lastName = row.cells[1].textContent;
 
-	let login = document.getElementById("loginName").value;
-	let password = document.getElementById("loginPassword").value;
-	//	var hash = md5( password );
+	if (confirm('Are you SURE you want to delete ' + firstName + ' ' + lastName + ' from your contact list?')) {
+		// Prepare the data to send to the PHP delete page
+		let tmp = {
+			firstName: firstName,
+			lastName: lastName, id: userId
+		};
+		let jsonPayload = JSON.stringify(tmp);
+		let url = urlBase + '/DeleteContact.' + extension;
 
-	document.getElementById("loginResult").innerHTML = "";
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+		try {
+			xhr.onreadystatechange = function () {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("contactSearchResult").innerHTML = "Contact has been DELETED";
+					setTimeout(function () {
+						document.getElementById("contactSearchResult").innerHTML = "";
+					}, 3000);
 
-	let tmp = { login: login, password: password };
-	//	var tmp = {login:login,password:hash};
+					row.remove();
+				}
+			};
+			xhr.send(jsonPayload);
+		}
+		catch (err) {
+			document.getElementById("contactSearchResult").innerHTML = err.message;
+		}
+	}
+}
+
+
+// <-------------------- UPDATE CONTACT --------------------->
+function editContact(newContact, oldContact) {
+	let tmp = {
+		oldName: oldContact.firstName, oldLastName: oldContact.lastName,
+		// new info
+		firstName: newContact.firstName, lastName: newContact.lastName,
+		phone: newContact.phone, email: newContact.email, userId: userId
+	};
+
 	let jsonPayload = JSON.stringify(tmp);
 
-	let url = urlBase + '/Login.' + extension;
+	let url = urlBase + '/UpdateContact.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -271,95 +341,132 @@ function editContact() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-				let jsonObject = JSON.parse(xhr.responseText);
-				userId = jsonObject.id;
+				document.getElementById("contactSearchResult").innerHTML = "Contact has been EDITED";
+				setTimeout(function () {
+					document.getElementById("contactSearchResult").innerHTML = "";
+				}, 3000);
 
-				if (userId < 1) {
-					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
-					return;
-				}
-
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
-
-				saveCookie();
-
-				window.location.href = "color.html";
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch (err) {
-		document.getElementById("loginResult").innerHTML = err.message;
+		document.getElementById("contactSearchResult").innerHTML = err.message;
 	}
 
 }
-function testAdd() {
-	let newContact = document.getElementById("tableBody");
 
-	let row = document.createElement("tr");
+// <----- Helper Functions for EDIT ----->
+function editContactForm(button) {
 
-	let c1 = document.createElement("td");
-	let c2 = document.createElement("td");
+	let row = button.closest('tr');
+	let rowID = row.getAttribute('id');
 
-	let c3 = document.createElement("td");
-	let c4 = document.createElement("td");
+	const contactTable = document.getElementById(rowID);
+	const rowData = document.querySelectorAll("#" + rowID + " td");
 
-	let c5 = document.createElement("td");
-	let c6 = document.createElement("td");
+	const objData = ['firstName', 'lastName', 'phone', 'email'];
+	const oldContact = {};
 
-	c1.innerText = "John"
-	c2.innerText = "Doe"
-	c3.innerText = "John@Doe.com"
-	c4.innerText = "000 000 0000"
+	rowData.forEach((item, index) => {
+		if (index >= objData.length) {
+			return;
+		}
+		oldContact[objData[index]] = item.innerHTML.trim();
+	});
 
-	var btn = document.createElement('input');
-	btn.type = "button";
-	btn.className = "btn";
-	btn.value = "Edit";
-	c5.appendChild(btn);
+	contactTable.innerHTML = '';
 
-	var btn = document.createElement('input');
-	btn.type = "button";
-	btn.className = "btn";
-	btn.value = "Delete";
-	c6.appendChild(btn);
+	// Create input elements
+	const firstNameInput = createInputElement('text', 'First Name', 'newFirstName', oldContact.firstName);
+	const lastNameInput = createInputElement('text', 'Last Name', 'newLastName', oldContact.lastName);
+	const phoneInput = createInputElement('tel', 'Phone', 'newPhone', oldContact.phone);
+	const emailInput = createInputElement('email', 'Email', 'newEmail', oldContact.email);
 
-	row.appendChild(c1);
-	row.appendChild(c2);
-	row.appendChild(c3);
-	row.appendChild(c4);
+	// Save button
+	const saveButton = document.createElement('button');
+	saveButton.setAttribute('type', 'button');
+	saveButton.setAttribute('id', 'saveButton');
+	saveButton.setAttribute('colspan', '2');
+	saveButton.textContent = 'save'; //replace with image
 
-	row.appendChild(c5);
-	row.appendChild(c6);
+	saveButton.addEventListener('click', function () {
+		const newContact = {
+			// new info
+			firstName: document.getElementById("newFirstName").value,
+			lastName: document.getElementById("newLastName").value,
+			phone: document.getElementById("newPhone").value,
+			email: document.getElementById("newEmail").value
+		};
 
-	newContact.appendChild(row);
+		// Test
+		// console.log('Old Contact:', oldContact);
+		// console.log('Updated Contact:', newContact);
+
+
+		// update table row
+		updateTableRow(rowID, newContact);
+		editContact(newContact, oldContact); // now call editContact function
+
+	});
+
+	// add to table
+	contactTable.appendChild(createTableCell(firstNameInput));
+	contactTable.appendChild(createTableCell(lastNameInput));
+	contactTable.appendChild(createTableCell(phoneInput));
+	contactTable.appendChild(createTableCell(emailInput));
+	contactTable.appendChild(createTableCell(saveButton));
 
 }
 
-function deleteContact() {
-
+// creating table cell
+function createTableCell(element) {
+	const cell = document.createElement('td');
+	cell.appendChild(element);
+	return cell;
 }
 
-// DOM events
-function init() {
-	let login = document.getElementById("loginButton");
-	login.addEventListener("click", doLogin);
+// input element for inline editing
+function createInputElement(type, placeholder, id, value) {
+	const input = document.createElement('input');
+	input.setAttribute('type', type);
+	input.setAttribute('placeholder', placeholder);
+	input.setAttribute('id', id);
+	input.value = value || '';
 
-	let signUp = document.getElementById("signUpButton");
-	signUp.addEventListener("click", doSignUp);
-	// CRUD operations
-	let addNewContact = document.getElementById("addContact");
-	addNewContact.addEventListener("click", testAdd);
-
-	let searchNewContact = document.getElementsByClassName("deleteContact");
-	searchNewContact.addEventListener("click", searchContact, false);
-
-	let editAContact = document.getElementsByClassName("edit");
-	editAContact.addEventListener("click", editContact, false);
-
-	let deleteAContact = document.getElementsByClassName("delete");
-	deleteAContact.addEventListener("click", deleteContact, false);
+	return input;
 }
 
-window.addEventListener("load", init);
+function updateTableRow(rowID, contact) {
+	const contactTable = document.getElementById(rowID);
+
+	// Clear table first
+	contactTable.innerHTML = '';
+
+	// Create table cells for each contact property
+	for (const prop in contact) {
+		const cell = document.createElement('td');
+		cell.textContent = contact[prop];
+		contactTable.appendChild(cell);
+	}
+
+	// Create Edit and Delete buttons
+	var editButton = document.createElement("button");
+	editButton.setAttribute("class", "editBtn");
+	editButton.setAttribute("onclick", "editContactForm(this)");
+	editButton.innerHTML = "edit";
+
+	var deleteButton = document.createElement("button");
+	deleteButton.setAttribute("class", "deleteBtn");
+	deleteButton.setAttribute("onclick", "deleteContact(this)");
+	deleteButton.innerHTML = "delete";
+
+	// Append buttons to the table row
+	contactTable.appendChild(editButton);
+	contactTable.appendChild(deleteButton);
+}
+
+
+
+
+
