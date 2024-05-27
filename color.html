@@ -1,23 +1,23 @@
 <html>
 
 <head>
-	<title>COP 4331 LAMP Stack Demo</title>
+	<title>Contacts Manager - Contacts</title>
 	<script type="text/javascript" src="js/code.js"></script>
 	<link href="css/reset.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 
-	<!-- commented for testing -> uncomment later
+
 	<script type="text/javascript">
 		document.addEventListener('DOMContentLoaded', function () {
 			readCookie();
 		}, false);
-	</script>  -->
+	</script>
 
 </head>
 
 <body>
 
-	<h1 id="title">COP 4331 LAMP Stack Demo</h1>
+	<h1 id="title">Contacts Page</h1>
 
 	<div id="loggedInDiv">
 		<span id="userName"></span><br />
@@ -27,19 +27,20 @@
 	<div id="accessUIDiv">
 		<br />
 
-		<input type="text" id="searchContactText" placeholder="Search First/Last Name" />
+		<div id="loginDiv">
+			<input type="text" id="addFirstNameText" placeholder="First Name" required>
+			<input type="text" id="addLastNameText" placeholder="Last Name" required>
+			<input type="tel" id="addPhoneNumberText" placeholder="Phone Number">
+			<input type="email" id="addEmailText" placeholder="Email">
+			<button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact
+			</button><br />
+			<span id="addContactResult"></span>
+		</div> <input type="text" id="searchContactText" placeholder="Search First/Last Name" />
 		<button type="button" id="searchContactButton" class="buttons" onclick="searchContact();"> Search Contact
 		</button><br />
 		<span id="contactSearchResult"></span>
 		<table id="contactTable">
 		</table><br /><br />
-
-		<input type="text" id="addFirstNameText" placeholder="First Name" required>
-		<input type="text" id="addLastNameText" placeholder="Last Name" required>
-		<input type="tel" id="addPhoneNumberText" placeholder="Phone Number">
-		<input type="email" id="addEmailText" placeholder="Email">
-		<button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button><br />
-		<span id="addContactResult"></span>
 	</div>
 
 </body>
