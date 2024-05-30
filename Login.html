@@ -9,19 +9,106 @@
 </head>
 
 <body>
-    <!-- skeleton -->
-    <h1 id="title">Log In</h1>
-    <!-- rename this file to login.html -->
+
+	<nav id="website-nav">
+		<ul class="website-nav logo">
+			<li class="website-nav img">
+                <img src="images/web-logo-black.png" alt="ContactManager-Logo-Pencil-on-top-of-Book">
+			</li>
+			<li class="website-nav website-name">
+				<p>ContactManager</p>
+			</li>
+		</ul>
+
+		<li class="website-nav button link enter-link">
+			<a href="index.html">HOME
+				<!-- ENTER WEBSITE ICON SVG PATHS-->
+				<svg class="svg" width="26" height="21" viewBox="0 0 19 18" fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M7.07666 1.72956C7.07666 1.06034 7.61916 0.517822 8.28839 0.517822H16.7705C17.4397 0.517822 17.9823 1.06034 17.9823 1.72956V16.2703C17.9823 16.9397 17.4397 17.4821 16.7705 17.4821H12.5295"
+						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+					<path
+						d="M11.0148 9.00122C12.1863 9.00122 13.136 8.05152 13.136 6.88C13.136 5.70849 12.1863 4.75879 11.0148 4.75879C9.84325 4.75879 8.89355 5.70849 8.89355 6.88C8.89355 8.05152 9.84325 9.00122 11.0148 9.00122Z"
+						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+					<path
+						d="M3.44141 7.78833L5.90876 7.78836C6.26869 7.78836 6.61388 7.93135 6.86838 8.18585L10.3145 11.6319C10.569 11.8865 10.9142 12.0294 11.2741 12.0294L13.1353 12.0294"
+						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+					<path d="M8.28847 9.60571L5.05076 12.8434C4.79626 13.0979 4.45105 13.2409 4.09113 13.2409H1.01807"
+						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+					<path d="M5.86475 12.0293L7.89072 14.0553C8.14523 14.3097 8.28822 14.655 8.28822 15.0149V17.4821"
+						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</a>
+		</li>
+	</nav>
+
+    <br>
+    <br>
+    <br>
 
     <div id="loginDiv">
-        <span id="inner-title">Log In</span>
-        <input type="text" id="loginName" placeholder="Username" /><br />
-        <input type="password" id="loginPassword" placeholder="Password" /><br />
-        <button type="button" id="loginButton" class="buttons" onclick="doLogin()"> Do It </button>
+        <span id="inner-title">
+            <!-- WELCOME BACK ICON SVG PATHS-->
+            <svg class="svg" width="26" height="21" viewBox="0 0 14 14" fill="none" style="vertical-align:text-bottom；"
+                xmlns="http://www.w3.org/2000/svg"> 
+                <path d="M13.0442 3.93782C13.0076 3.37229 12.8097 2.8556 12.4983 2.42969"
+                    stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M3.41699 1.56439C3.73144 1.09291 4.16115 0.744381 4.64381 0.53125"
+                    stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                    d="M3.16844 12.0111L2.82257 11.6176C2.34257 11.0714 1.96585 10.4425 1.71077 9.7616L1.02344 7.9268C0.853256 7.47249 0.996914 6.96027 1.37853 6.66072C1.95092 6.21142 2.79341 6.42313 3.08541 7.08964L3.66589 8.41465C4.10088 8.53121 5.09824 8.98494 5.60774 9.86741"
+                    stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                    d="M3.66626 8.41619L5.12321 2.97881C5.28414 2.37821 5.90148 2.02179 6.50207 2.18272C7.10267 2.34365 7.45909 2.96099 7.29816 3.56158L6.424 6.82402L7.64783 2.25661C7.80876 1.65601 8.4261 1.29959 9.0267 1.46052C9.62729 1.62145 9.98371 2.23879 9.82278 2.83939L8.4824 7.84179L9.24001 5.01434C9.40094 4.41375 10.0183 4.05733 10.6189 4.21826C11.2195 4.37918 11.5759 4.99652 11.415 5.59712L9.70621 11.9742C9.56892 12.4866 9.23372 12.9234 8.77436 13.1887L8.3887 13.4113"
+                    stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Welcome back
+        </span>
+
+        <div class="login-fields">
+            <label class="username-label signup-login-label">Username</label>
+            <input class="username-input" style="border-radius:0%;border-color:grey;" type="text" id="loginName" placeholder="Enter your Username" /><br />
+
+            <label class="password-label signup-login-label">Password</label>
+            <input class="password-input" style="border-radius:0%;border-color:grey;" type="password" id="loginPassword" placeholder="Enter your Password" /><br />
+        </div>
+
+        <button type="button" id="loginButton" class="buttons" onclick="doLogin()"> GO TO CONTACTS </button>
         <span id="loginResult"></span>
     </div>
 
+    <br>
+
+    <div class="action-buttons" style="justify-content:center;"> 
+        <ul>
+            <li>Need an Account?</li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="button link enter-link get-started">
+                <a href="SignUp.html">SIGN UP
+                    <!-- SIGN UP WEBSITE ICON SVG PATHS-->
+                    <svg class="svg" width="26" height="21" viewBox="0 0 14 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.0442 3.93782C13.0076 3.37229 12.8097 2.8556 12.4983 2.42969"
+                            stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M3.41699 1.56439C3.73144 1.09291 4.16115 0.744381 4.64381 0.53125"
+                            stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M3.16844 12.0111L2.82257 11.6176C2.34257 11.0714 1.96585 10.4425 1.71077 9.7616L1.02344 7.9268C0.853256 7.47249 0.996914 6.96027 1.37853 6.66072C1.95092 6.21142 2.79341 6.42313 3.08541 7.08964L3.66589 8.41465C4.10088 8.53121 5.09824 8.98494 5.60774 9.86741"
+                            stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M3.66626 8.41619L5.12321 2.97881C5.28414 2.37821 5.90148 2.02179 6.50207 2.18272C7.10267 2.34365 7.45909 2.96099 7.29816 3.56158L6.424 6.82402L7.64783 2.25661C7.80876 1.65601 8.4261 1.29959 9.0267 1.46052C9.62729 1.62145 9.98371 2.23879 9.82278 2.83939L8.4824 7.84179L9.24001 5.01434C9.40094 4.41375 10.0183 4.05733 10.6189 4.21826C11.2195 4.37918 11.5759 4.99652 11.415 5.59712L9.70621 11.9742C9.56892 12.4866 9.23372 12.9234 8.77436 13.1887L8.3887 13.4113"
+                            stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+
 </body>
-<footer>Contact Manager Project Made by Group 22 for COP4331</footer>
+
+<footer>
+	<p class="footer">Contact Manager Project Made by Group 22 for COP4331</p>
+</footer>
 
 </html>

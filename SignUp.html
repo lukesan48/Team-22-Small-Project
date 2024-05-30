@@ -9,19 +9,91 @@
 </head>
 
 <body>
-    <h1 id="title">Sign Up</h1>
 
-    <div id="signUpDiv">
-        <span id="inner-title">SIGN UP</span><br>
-        <input type="text" id="name1" placeholder="Enter First Name" /><br />
-        <input type="text" id="name2" placeholder="Enter Last Name" /><br />
-        <input type="text" id="signUpName" placeholder="Username" /><br />
-        <input type="password" id="signUpPassword" placeholder="Password" /><br />
-        <button type="button" id="signUpButton" class="buttons" onclick="doSignUp()"> Sign Up</button>
+    <nav id="website-nav">
+        <ul class="website-nav logo">
+            <li class="website-nav img">
+                <img src="images/web-logo-black.png" alt="ContactManager-Logo-Pencil-on-top-of-Book">
+            </li>
+            <li class="website-nav website-name">
+                <p>ContactManager</p>
+            </li>
+        </ul>
+
+        <li class="website-nav button link enter-link">
+            <a href="index.html">HOME
+                <!-- ENTER WEBSITE ICON SVG PATHS-->
+                <svg class="svg" width="26" height="21" viewBox="0 0 19 18" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M7.07666 1.72956C7.07666 1.06034 7.61916 0.517822 8.28839 0.517822H16.7705C17.4397 0.517822 17.9823 1.06034 17.9823 1.72956V16.2703C17.9823 16.9397 17.4397 17.4821 16.7705 17.4821H12.5295"
+                        stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                        d="M11.0148 9.00122C12.1863 9.00122 13.136 8.05152 13.136 6.88C13.136 5.70849 12.1863 4.75879 11.0148 4.75879C9.84325 4.75879 8.89355 5.70849 8.89355 6.88C8.89355 8.05152 9.84325 9.00122 11.0148 9.00122Z"
+                        stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                        d="M3.44141 7.78833L5.90876 7.78836C6.26869 7.78836 6.61388 7.93135 6.86838 8.18585L10.3145 11.6319C10.569 11.8865 10.9142 12.0294 11.2741 12.0294L13.1353 12.0294"
+                        stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M8.28847 9.60571L5.05076 12.8434C4.79626 13.0979 4.45105 13.2409 4.09113 13.2409H1.01807"
+                        stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M5.86475 12.0293L7.89072 14.0553C8.14523 14.3097 8.28822 14.655 8.28822 15.0149V17.4821"
+                        stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+        </li>
+    </nav>
+
+    <br>
+    <br>
+
+    <div class="innerlayout" id="signUpDiv">
+        <span id="inner-title">But first, lets get to know you!</span><br>
+
+        <div class="signup-fields">
+            <label class="firstname-label signup-login-label">First Name</label>
+            <input class="firstname-input" style="border-radius:0%;border-color:grey;" type="text" id="name1" placeholder="Your First Name" /><br />
+
+            <label class="lastname-label signup-login-label">Last Name</label>
+            <input class="lastname-input" style="border-radius:0%;border-color:grey;" type="text" id="name2" placeholder="Your Last Name" /><br />
+
+            <label class="username-label signup-login-label">Username</label>
+            <input class="username-input" style="border-radius:0%;border-color:grey;" type="text" id="signUpName" placeholder=" Create a username" /><br />
+
+            <label class="password-label signup-login-label">Password </label>
+            <input class="password-input" style="border-radius:0%;border-color:grey;" type="password" id="signUpPassword" placeholder="Create a secure password" /><br />
+        </div>
+
+        <button type="button" id="signUpButton" class="buttons" onclick="doSignUp()"> SIGN UP</button>
         <span id="signUpResult"></span>
     </div>
 
+    <br>
+
+    <div class="action-buttons" style="justify-content:center;">
+        <ul>
+            <li>Have an Account?</li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <li class="log-in link">
+                <a href="Login.html">Log in
+                    <!-- LOG IN WEBSITE ICON SVG  -->
+                    <svg class="svg" width="26" height="21" viewBox="0 0 14 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3.76285 13.4999C1.88009 12.7491 1.6918 11.0645 1.84689 9.66668C1.95443 8.69737 2.75808 8.08325 3.71217 8.08325C4.60688 8.08325 6.41995 8.08691 6.41995 8.08691C7.10357 8.1397 7.59996 8.76343 7.53505 9.43591C7.43502 10.4722 6.21075 10.5837 5.38785 10.7916C6.01924 11.0829 7.25842 11.8867 7.16402 12.7718"
+                            stroke="#191919" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M10.2628 13.5L10.7162 13.0466C11.4663 12.2964 11.8878 11.279 11.8878 10.2181V4.02083C11.8878 3.27295 11.2815 2.66667 10.5336 2.66667C9.78572 2.66667 9.17944 3.27295 9.17944 4.02083V7C7.5635 6.27439 7.16462 6.2022 5.38778 6.45833V1.85417C5.38778 1.10628 4.7815 0.5 4.03361 0.5C3.28572 0.5 2.67944 1.10628 2.67944 1.85417V8.33168"
+                            stroke="#191919" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+
 </body>
-<footer>Contact Manager Project Made by Group 22 for COP4331</footer>
+
+<footer>
+	<p class="footer">Contact Manager Project Made by Group 22 for COP4331</p>
+</footer>
 
 </html>
