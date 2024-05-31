@@ -663,12 +663,13 @@ span[id*="Result"] {
 
 #signUpButton,
 #loginButton {
+    color: white;
     border: 2px solid;
     margin-top: 2vh;
     border-color: black;
-    background-color: transparent;
+    background-color: black;
     border-radius: 1rem;
-    padding: 0 1rem;
+    padding:0.4rem 0.7rem;
     margin-bottom: 2vh;
 }
 
@@ -697,4 +698,43 @@ span[id*="Result"] {
     text-align: center;
     left: 0;
     width: 100%;
+}
+
+.signup-login-label {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+}
+
+.firstname-label { grid-area: fl; }
+.firstname-input { grid-area: fi; }
+.lastname-label { grid-area: ll; }
+.lastname-input { grid-area: li; }
+.username-label { grid-area: ul; }
+.username-input { grid-area: ui; }
+.password-label { grid-area: pl; }
+.password-input { grid-area: pi; }
+
+.signup-fields {
+    display: grid;
+    grid-template-areas:
+        'fl fl fl fi fi fi fi fi ll ll ll li li li li li'
+        'ul ul ul ul ul ul ui ui ui ui ui ui ui ui ui ui'
+        'pl pl pl pl pl pl pi pi pi pi pi pi pi pi pi pi';
+    gap: 0px;
+    padding: 30px;
+}
+
+.login-fields {
+    display: grid;
+    grid-template-areas:
+        'ul ui ui'
+        'pl pi pi';
+    gap: 0px;
+    padding: 30px;
 }
