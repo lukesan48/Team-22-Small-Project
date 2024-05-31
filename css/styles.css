@@ -20,9 +20,11 @@ body {
     color: black;
     font-size: 1.5rem;
     font-weight: 600;
+    margin-left: 5px;
 }
 
-.logo {
+.logo,
+.website-actions {
     display: flex;
 }
 
@@ -45,19 +47,44 @@ body {
     flex-direction: row;
 }
 
-.items:hover,
-.log-in:hover {
+.items a:hover,
+.log-in:hover,
+.log-out:hover {
     text-decoration: underline;
 }
 
 .about-us a,
-.log-in a {
+.log-in a,
+.log-out a {
     color: black;
 }
 
-.enter-link {
+.log-out a {
+    display: flex;
+    text-transform: uppercase;
+    padding: 0;
+}
+
+.website-actions {
+    padding-left: 0;
+    align-items: center;
+}
+
+/* LOGOUT LINK */
+.website-actions li:nth-child(1) a {
+    padding-right: 1rem;
+}
+
+.enter-link,
+.home-link {
     background-color: black;
     border-radius: 100rem;
+}
+
+.home-link a {
+    border-radius: 100rem;
+    border: 2px solid black;
+    stroke: black;
 }
 
 .link a {
@@ -75,7 +102,9 @@ body {
     color: white;
 }
 
-.add-contact>button {
+.add-contact>button,
+.fake-add-contact button,
+#add-contact-button button {
     background-color: black;
     font-size: 0.9rem;
     font-weight: 400;
@@ -87,9 +116,27 @@ body {
     border: none;
 }
 
-.add-contact {
-    padding-left: 14em;
+#add-contact-button button {
+    text-transform: uppercase;
+    padding: 0.8em 1.4em;
 }
+
+.save-button:hover {
+    background-color: rgba(255, 255, 125, 0.909);
+}
+
+input[type=text],
+td input {
+    border: none;
+}
+
+td input {
+    background: none;
+    width: 7em;
+    text-align: center;
+}
+
+
 
 
 /* ENTER ICON SVG STYLING WITHIN LOGIN BUTTON */
@@ -103,8 +150,8 @@ body {
     stroke-width: 1.2;
 }
 
-.add-contact-button {
-    padding-left: 0.5rem;
+#add-contact-button svg {
+    margin-left: 0.5rem;
 }
 
 /*      MAIN CONTENT STYLING      */
@@ -201,21 +248,38 @@ hr[class="search-line"] {
 
 .contact-table {
     text-align: center;
-    width: 90%;
+    width: 70%;
     border: 1px solid black;
     border-radius: 0.5em;
     padding: 1.2rem 1.5rem;
 
 }
 
-.table-header td {
-    padding-bottom: 2.5em;
+.table-header,
+.fake-table-header {
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 0 1em 0;
 }
 
-.table-header td:nth-child(1) {
-    padding-bottom: 2.5em;
-    font-weight: 600;
-    font-size: 1.2em;
+.fake-table-header {
+    width: 65%;
+}
+
+.refresh-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.refresh-button a {
+    padding-left: 0.4em;
+}
+
+tbody svg {
+    stroke-width: 1.4;
 }
 
 thead tr:nth-child(2) th {
@@ -233,21 +297,45 @@ thead tr:nth-child(2) th {
     padding-top: 1em;
 }
 
-.table-contact-info td {
-    width: 2em;
+.table-contact-info:last-child {
+    margin-right: 3em;
 }
 
-#first-section>td {
-    border: none;
+.table-contact-info th {
+    padding-bottom: 2em;
+
 }
 
+.currently-editing {
+    font-weight: 600;
+    background-color: rgba(255, 255, 0, 0.451);
+}
+
+.confirm-delete {
+    background-color: rgba(255, 107, 107, 0.691);
+}
 
 /* SEARCH AREA */
 .search-model {
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid black;
+    width: 100%;
     font-family: sans-serif;
+    margin-bottom: 1em;
+    justify-content: center;
+}
+
+.search-model>input {
+    margin-left: 3em;
+    text-align: center;
+    width: 50%;
+    border-bottom: 1px solid black;
+}
+
+.search-model>input:hover {
+    background-color: rgba(128, 128, 128, 0.197);
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
 }
 
 .search-key-text {
@@ -261,19 +349,284 @@ thead tr:nth-child(2) th {
     font-size: 1.2rem;
 }
 
-.fake-search-button {
+.fake-search-button,
+.search-button {
     background-color: black;
     margin-left: 2em;
-    color: white;
     border: none;
     border-radius: 100em;
     padding: 0.8em 1.2em;
     text-transform: uppercase;
     font-size: 0.8rem;
     font-weight: 600;
+    border: 2px solid black;
+    color: white;
 }
 
+.fake-search-button {
+    color: white;
+}
+
+.search-button {
+    margin-left: 1em;
+}
+
+.search-button:hover,
+.home-link a:hover {
+    background-color: white;
+    color: black;
+}
+
+
+/* PROFILE PAGE STYLING */
+
+.welcome-header,
+.profile-card,
+#profile-contact-table,
+.content-card,
+.inner-title,
+.profile-photo,
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content {
+    flex-wrap: wrap;
+}
+
+.welcome-header {
+    width: 50%;
+    /* border: 1px solid black; */
+    text-align: center;
+    height: 60%;
+}
+
+.header-content {
+    line-height: 2em;
+}
+
+#sentence-4,
+#sentence-5 {
+    font-size: 3rem;
+    font-weight: 150;
+}
+
+#sentence-6 {
+    letter-spacing: -2px;
+    font-size: 3.4rem;
+    font-weight: 400;
+}
+
+/* PROFILE CARD */
+.profile-card {
+    /* border: 1px solid black; */
+    width: 50%;
+    height: 60%;
+}
+
+.card-content {
+    display: flex;
+    width: 100%;
+    height: 65%;
+    border: 1px solid black;
+    border-radius: 0.6em;
+    flex-wrap: wrap;
+}
+
+.card-content .inner-title {
+    width: 100%;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.2rem;
+    height: 4rem;
+    background-color: black;
+    color: white;
+    border-top-left-radius: 0.4em;
+    border-top-right-radius: 0.4em;
+}
+
+.profile-photo,
+.user-info {
+    /* background-color: rgba(255, 127, 238, 0.435); */
+    width: 50%;
+    height: 75%;
+}
+
+.user-info {
+    padding-right: 4em;
+    flex-direction: column;
+}
+
+.user-info #full-name {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.user-info #contact-info-list ul {
+    display: flex;
+    flex-direction: column;
+    padding-right: 3em;
+}
+
+.user-info #contact-info-list ul li {
+    display: flex;
+    width: 100%;
+    list-style: none;
+}
+
+.user-info #contact-info-list ul li:nth-child(1) {
+    margin-top: 1em;
+}
+
+#contact-info-list ul li .info-type {
+    font-weight: 700;
+    margin-right: 0.4em;
+}
+
+#contact-info-list ul li .user {
+    margin-right: 0.8em;
+}
+
+.user-info #contact-info-list ul li:nth-child(3) p {
+    margin-left: 0.175em;
+}
+
+/* CONTACT TABLE */
+#profile-contact-table {
+    align-items: flex-start;
+    width: 100%;
+}
+
+
 /*  FORM DIVS */
+#profile-contact-table .contactDiv {
+    width: 90%;
+    border-spacing: 15px;
+    margin-bottom: 5em;
+}
+
+#profile-contact-table .add-contact>button {
+    margin-left: 14em;
+}
+
+/* ADDING CONTACTS STYLING */
+#adding-contact {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    width: 70%;
+    /* border: 1px solid black; */
+    border-radius: 0.5em;
+    flex-wrap: wrap;
+    padding-bottom: 1em;
+}
+
+#add-contact-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(128, 128, 128, 0.423);
+    padding: 1.3em;
+    font-weight: 600;
+    border-top-left-radius: 0.4em;
+    border-top-right-radius: 0.4em;
+    margin-bottom: 2em;
+}
+
+#add-contact-header p {
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+
+#add-contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2.3em 1em;
+    padding-bottom: 0.5em;
+}
+
+.contact-border {
+    border: 1px solid;
+    margin-bottom: 3em;
+}
+
+#add-user-inputs {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+
+}
+
+#add-user-inputs input {
+    border: 1px solid black;
+    border-top-right-radius: 0.34em;
+    border-bottom-right-radius: 0.34em;
+    padding: 0.34em;
+    text-align: center;
+    font-weight: 600;
+}
+
+#add-user-inputs label {
+    border: 1px solid black;
+    margin: 0.3em;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 0.5em 1em;
+    margin-right: 0;
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+}
+
+#add-user-inputs div:nth-child(1) input {
+    width: 200px;
+}
+
+#add-user-inputs div:nth-child(2) input {
+    width: 200px;
+}
+
+#add-user-inputs div:nth-child(3) input {
+    width: 150px;
+}
+
+#add-user-inputs div:nth-child(4) input {
+    width: 320px;
+}
+
+#addPhoneNumberText {
+    margin-top: 0.5rem;
+}
+
+#addEmailText {
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+.addContactResult {
+    display: block;
+}
+
+span[id*="Result"] {
+    text-transform: uppercase;
+}
+
+/* FORM STYLING  */
+
 
 #signUpDiv,
 #loginDiv {
