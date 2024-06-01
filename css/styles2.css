@@ -1,0 +1,85 @@
+.color-left {
+    z-index: -100;
+    position: absolute;
+    top: -80%;
+    left: -43%;
+    width: 1800px;
+    height: 1500px;
+    border-radius: 50% 22% 40% 80%;
+    filter: blur(140px);
+    -webkit-filter: blur(140px);
+    background: radial-gradient(circle at 50% 50%, #05445E 60%, #189ab4de 10%, #D4F1F4);
+    animation: down 13s infinite;
+    -webkit-animation: down 30s infinite;
+}
+
+.color-bottom {
+    z-index: -100;
+    position: absolute;
+    top: 75%;
+    left: 25%;
+    width: 900px;
+    height: 900px;
+    border-radius: 50% 22% 40% 80%;
+    filter: blur(100px);
+    -webkit-filter: blur(100px);
+    background: radial-gradient(circle at 50% 50%, #05445E 60%, #189ab4de 20%, #D4F1F4);
+    animation: left 13s infinite;
+    -webkit-animation: left 30s infinite;
+}
+
+.color-right {
+    z-index: -1000;
+    position: absolute;
+    bottom: 30%;
+    right: -38%;
+    width: 1500px;
+    height: 1500px;
+    border-radius: 50% 22% 40% 80%;
+    filter: blur(100px);
+    -webkit-filter: blur(100px);
+    background: radial-gradient(circle at 50% 50%, #05445E 40%, #189AB4 40%, #D4F1F4);
+    animation: up 13s infinite;
+    -webkit-animation: up 30s infinite;
+}
+
+
+
+/* BACKGROUND ANIMATION  */
+@keyframes up {
+
+    0%,
+    100% {
+        bottom: -300px;
+    }
+
+    70% {
+        bottom: 600px;
+    }
+}
+
+@keyframes left {
+
+    0%,
+    100% {
+        left: -60px;
+    }
+
+    70% {
+        left: 1200px;
+    }
+}
+
+
+
+@keyframes down {
+
+    0%,
+    100% {
+        top: -1000px;
+    }
+
+    70% {
+        top: 50px;
+    }
+}

@@ -3,15 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title>Contacts Manager - Contacts</title>
 	<script type="text/javascript" src="js/code.js"></script>
 	<link href="css/reset.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
+	<link href="css/styles2.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 	<script type="text/javascript">
 		document.addEventListener('DOMContentLoaded', function () {
+			disableSafariAnimations();
 			readCookie();
 		}, false);
 	</script>
@@ -19,26 +22,30 @@
 </head>
 
 <body>
+	<div class="color-left color"></div>
+	<div class="color-bottom color"></div>
+	<div class="color-right color"></div>
+
 	<nav id="website-nav">
 		<ul class="website-nav logo">
 			<li class="website-nav-svg">
-				<svg id="logo-svg" width="30" height="34" viewBox="0 0 30 34" fill="none"
+				<svg id="logo-svg svg" width="30" height="34" viewBox="0 0 30 34" fill="none"
 					xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M15.4997 15.8981C13.5245 14.5552 10.5608 12.2051 2.06641 12.2051V29.0207C10.5608 29.0207 13.5245 31.3708 15.4997 32.7138V15.8981Z"
-						stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+						stroke="#FEFCFE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
 					<path
 						d="M15.5007 15.8981C17.4759 14.5552 20.4396 12.2051 28.9339 12.2051V29.0207C20.4396 29.0207 17.4759 31.3708 15.5007 32.7138V15.8981Z"
-						stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+						stroke="#FEFCFE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
 					<path
 						d="M25.4454 1.26587H7.79924C7.30626 1.26587 6.8231 1.39258 6.40436 1.63168L1.75928 4.2841L6.40436 6.93649C6.8231 7.1756 7.30626 7.3023 7.79924 7.3023H25.4454C27.2595 7.3023 28.73 5.95102 28.73 4.2841C28.73 2.61717 27.2595 1.26587 25.4454 1.26587Z"
-						stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+						stroke="#FEFCFE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
 					<path d="M20.7483 1.39575V7.30243" stroke="black" stroke-width="2" stroke-linecap="round"
 						stroke-linejoin="round" />
 				</svg>
 			</li>
 			<li class="website-nav website-name">
-				<p>ContactManager</p>
+				<p>MyContact</p>
 			</li>
 		</ul>
 
@@ -64,17 +71,6 @@
 						</defs>
 					</svg> Logout
 				</a></li>
-			<li class="website-nav button link home-link" onclick="saveCookie()">
-				<a href="index.html">Home
-					<!-- ENTER WEBSITE ICON SVG PATHS-->
-					<svg class="svg" width="21" height="21" viewBox="0 0 14 14" fill="none"
-						xmlns="http://www.w3.org/2000/svg">
-						<path d="M0.5 8L7 1.5L13.5 8" stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-						<path d="M2.5 6V12.5H11.5V6" stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-					</svg>
-					</span>
-				</a>
-			</li>
 		</ul>
 	</nav>
 
@@ -125,9 +121,7 @@
 
 		<!-- CONTACT TABLE -->
 		<div id="profile-contact-table">
-
 			<div class="head ContactDiv">
-
 				<div class="search-model">
 
 					<input type="text" id="searchContactText" placeholder="Search First/Last Name" />

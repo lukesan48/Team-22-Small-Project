@@ -11,9 +11,21 @@
 
 	<link href="css/reset.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
+	<link href="css/styles2.css" rel="stylesheet">
+	<script type="text/javascript">
+
+		document.addEventListener('DOMContentLoaded', function () {
+			disableSafariAnimations();
+		}, false);
+	</script>
+
 </head>
 
 <body>
+	<div class="color-left color"></div>
+	<div class="color-bottom color"></div>
+	<div class="color-right color"></div>
+
 	<nav id="website-nav">
 		<ul class="website-nav logo">
 			<li class="website-nav-svg">
@@ -21,48 +33,56 @@
 					xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M15.4997 15.8981C13.5245 14.5552 10.5608 12.2051 2.06641 12.2051V29.0207C10.5608 29.0207 13.5245 31.3708 15.4997 32.7138V15.8981Z"
-						stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+						stroke="#FEFCFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 					<path
 						d="M15.5007 15.8981C17.4759 14.5552 20.4396 12.2051 28.9339 12.2051V29.0207C20.4396 29.0207 17.4759 31.3708 15.5007 32.7138V15.8981Z"
-						stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+						stroke="#FEFCFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 					<path
-						d="M25.4454 1.26587H7.79924C7.30626 1.26587 6.8231 1.39258 6.40436 1.63168L1.75928 4.2841L6.40436 6.93649C6.8231 7.1756 7.30626 7.3023 7.79924 7.3023H25.4454C27.2595 7.3023 28.73 5.95102 28.73 4.2841C28.73 2.61717 27.2595 1.26587 25.4454 1.26587Z"
-						stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-					<path d="M20.7483 1.39575V7.30243" stroke="black" stroke-width="2" stroke-linecap="round"
+						d="M25.4454 1.26562H7.79924C7.30626 1.26562 6.8231 1.39234 6.40436 1.63144L1.75928 4.28385L6.40436 6.93624C6.8231 7.17536 7.30626 7.30206 7.79924 7.30206H25.4454C27.2595 7.30206 28.73 5.95078 28.73 4.28385C28.73 2.61693 27.2595 1.26562 25.4454 1.26562Z"
+						stroke="#FEFCFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+					<path d="M20.7483 1.39551V7.30219" stroke="#FEFCFE" stroke-width="2" stroke-linecap="round"
 						stroke-linejoin="round" />
 				</svg>
+
 			</li>
 			<li class="website-nav website-name">
-				<p>ContactManager</p>
+				<p>MyContact</p>
 			</li>
 		</ul>
 
 		<ul class="website-nav items">
-			<li class="website-nav about-us link"> <a href="aboutUs.html">Meet the Team</a></li>
+			<li class="website-nav about-us"> <a href="aboutUs.html">Meet the Team</a></li>
 		</ul>
+		<ul>
 
-		<li class="website-nav button link enter-link">
-			<a href="login.html">Login / Sign Up
-				<!-- ENTER WEBSITE ICON SVG PATHS-->
-				<svg class="svg" width="26" height="21" viewBox="0 0 19 18" fill="none"
-					xmlns="http://www.w3.org/2000/svg">
-					<path
-						d="M7.07666 1.72956C7.07666 1.06034 7.61916 0.517822 8.28839 0.517822H16.7705C17.4397 0.517822 17.9823 1.06034 17.9823 1.72956V16.2703C17.9823 16.9397 17.4397 17.4821 16.7705 17.4821H12.5295"
-						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-					<path
-						d="M11.0148 9.00122C12.1863 9.00122 13.136 8.05152 13.136 6.88C13.136 5.70849 12.1863 4.75879 11.0148 4.75879C9.84325 4.75879 8.89355 5.70849 8.89355 6.88C8.89355 8.05152 9.84325 9.00122 11.0148 9.00122Z"
-						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-					<path
-						d="M3.44141 7.78833L5.90876 7.78836C6.26869 7.78836 6.61388 7.93135 6.86838 8.18585L10.3145 11.6319C10.569 11.8865 10.9142 12.0294 11.2741 12.0294L13.1353 12.0294"
-						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-					<path d="M8.28847 9.60571L5.05076 12.8434C4.79626 13.0979 4.45105 13.2409 4.09113 13.2409H1.01807"
-						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-					<path d="M5.86475 12.0293L7.89072 14.0553C8.14523 14.3097 8.28822 14.655 8.28822 15.0149V17.4821"
-						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-				</svg>
-				</span>
-			</a>
-		</li>
+			<li class="website-nav button link enter-link">
+				<a href="login.html">Login
+					<!-- ENTER WEBSITE ICON SVG PATHS-->
+					<svg class="svg" width="37" height="30" viewBox="0 0 27 27" fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<g filter="url(#filter0_d_111_6814)">
+							<path
+								d="M11.0767 2.72932C11.0767 2.0601 11.6192 1.51758 12.2884 1.51758H20.7705C21.4397 1.51758 21.9823 2.0601 21.9823 2.72932V17.2701C21.9823 17.9394 21.4397 18.4819 20.7705 18.4819H16.5295"
+								stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+							<path
+								d="M15.0145 10.0012C16.186 10.0012 17.1357 9.05152 17.1357 7.88C17.1357 6.70849 16.186 5.75879 15.0145 5.75879C13.843 5.75879 12.8933 6.70849 12.8933 7.88C12.8933 9.05152 13.843 10.0012 15.0145 10.0012Z"
+								stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+							<path
+								d="M7.44116 8.78809L9.90852 8.78811C10.2684 8.78811 10.6136 8.9311 10.8681 9.18561L14.3142 12.6317C14.5687 12.8862 14.9139 13.0292 15.2739 13.0292L17.135 13.0292"
+								stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+							<path
+								d="M12.2882 10.6055L9.05052 13.8432C8.79601 14.0977 8.45081 14.2407 8.09088 14.2407H5.01782"
+								stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+							<path
+								d="M9.86475 13.0293L11.8907 15.0553C12.1452 15.3097 12.2882 15.655 12.2882 16.0149V18.4821"
+								stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+						</g>
+
+					</svg>
+					</span>
+				</a>
+			</li>
+		</ul>
 	</nav>
 
 	<!-- LANDING PAGE CONTENT -->
@@ -80,51 +100,40 @@
 
 			<hr>
 			<section class="landing-page action-buttons">
-				<ul>
-					<li class="button link enter-link get-started">
-						<a href="SignUp.html">Get Started
-							<!-- GET STARTED WEBSITE ICON SVG PATHS-->
-							<svg class="svg" width="26" height="21" viewBox="0 0 14 14" fill="none"
-								xmlns="http://www.w3.org/2000/svg">
+
+				<div class="button link enter-link get-started">
+					<a href="SignUp.html">Get Started
+						<!-- GET STARTED WEBSITE ICON SVG PATHS-->
+						<svg class="svg" width="26" height="21" viewBox="0 0 14 14" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<g clip-path="url(#clip0_111_6916)">
 								<path d="M13.0442 3.93782C13.0076 3.37229 12.8097 2.8556 12.4983 2.42969"
-									stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+									stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
 								<path d="M3.41699 1.56439C3.73144 1.09291 4.16115 0.744381 4.64381 0.53125"
-									stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+									stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
 								<path
 									d="M3.16844 12.0111L2.82257 11.6176C2.34257 11.0714 1.96585 10.4425 1.71077 9.7616L1.02344 7.9268C0.853256 7.47249 0.996914 6.96027 1.37853 6.66072C1.95092 6.21142 2.79341 6.42313 3.08541 7.08964L3.66589 8.41465C4.10088 8.53121 5.09824 8.98494 5.60774 9.86741"
-									stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+									stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
 								<path
 									d="M3.66626 8.41619L5.12321 2.97881C5.28414 2.37821 5.90148 2.02179 6.50207 2.18272C7.10267 2.34365 7.45909 2.96099 7.29816 3.56158L6.424 6.82402L7.64783 2.25661C7.80876 1.65601 8.4261 1.29959 9.0267 1.46052C9.62729 1.62145 9.98371 2.23879 9.82278 2.83939L8.4824 7.84179L9.24001 5.01434C9.40094 4.41375 10.0183 4.05733 10.6189 4.21826C11.2195 4.37918 11.5759 4.99652 11.415 5.59712L9.70621 11.9742C9.56892 12.4866 9.23372 12.9234 8.77436 13.1887L8.3887 13.4113"
-									stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-							</svg>
-						</a>
-					</li>
-
-					<ul class="log-in link">
-						<li><a href="Login.html">Log in
-								<!-- LOG IN WEBSITE ICON SVG  -->
-								<svg class="svg" width="26" height="21" viewBox="0 0 14 14" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M3.76285 13.4999C1.88009 12.7491 1.6918 11.0645 1.84689 9.66668C1.95443 8.69737 2.75808 8.08325 3.71217 8.08325C4.60688 8.08325 6.41995 8.08691 6.41995 8.08691C7.10357 8.1397 7.59996 8.76343 7.53505 9.43591C7.43502 10.4722 6.21075 10.5837 5.38785 10.7916C6.01924 11.0829 7.25842 11.8867 7.16402 12.7718"
-										stroke="#191919" stroke-linecap="round" stroke-linejoin="round" />
-									<path
-										d="M10.2628 13.5L10.7162 13.0466C11.4663 12.2964 11.8878 11.279 11.8878 10.2181V4.02083C11.8878 3.27295 11.2815 2.66667 10.5336 2.66667C9.78572 2.66667 9.17944 3.27295 9.17944 4.02083V7C7.5635 6.27439 7.16462 6.2022 5.38778 6.45833V1.85417C5.38778 1.10628 4.7815 0.5 4.03361 0.5C3.28572 0.5 2.67944 1.10628 2.67944 1.85417V8.33168"
-										stroke="#191919" stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
-							</a>
-						</li>
-					</ul>
-				</ul>
+									stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+							</g>
+							<defs>
+								<clipPath id="clip0_111_6916">
+									<rect width="14" height="14" fill="white" />
+								</clipPath>
+							</defs>
+						</svg>
+					</a>
+				</div>
 			</section>
 		</div>
 
 		<div class="head ContactDiv">
 
-			<div class="seach-model">
+			<div class="search-model fake-search-model">
 				<p class="search-key-text">Keep track of all your connections in <span>one</span> place <button
 						class="fake-search-button">Search</button></p>
-
 			</div>
 			<hr class="search-line">
 
@@ -154,13 +163,10 @@
 							</defs>
 						</svg>
 					</button>
-
 				</div>
 
 			</div>
-
 			<table class="contact-table display-table" cellspacing=0>
-
 				<thead>
 					<tr class="table-contact-info">
 						<th colspan="2">Full Name</th>
@@ -182,23 +188,24 @@
 								xmlns="http://www.w3.org/2000/svg">
 								<path
 									d="M6.09965 13.6432L1.19263 15L2.56659 10.1542L11.5519 1.324C11.6534 1.22143 11.7748 1.13994 11.9086 1.0843C12.0425 1.02866 12.1863 1 12.3316 1C12.4768 1 12.6206 1.02866 12.7545 1.0843C12.8883 1.13994 13.0097 1.22143 13.1112 1.324L15.0413 3.24079C15.1435 3.3409 15.2246 3.46001 15.28 3.59122C15.3354 3.72245 15.3639 3.8632 15.3639 4.00536C15.3639 4.14751 15.3354 4.28827 15.28 4.41949C15.2246 4.55072 15.1435 4.66982 15.0413 4.76992L6.09965 13.6432Z"
-									stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+									stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
 							</svg>
 						</td>
 
 						<td width="15"> <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<g clip-path="url(#clip0_102_5191)">
-									<path d="M1 3.5H13" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M1 3.5H13" stroke="#05445E" stroke-linecap="round"
+										stroke-linejoin="round" />
 									<path
 										d="M2.5 3.5H11.5V12.5C11.5 12.7652 11.3946 13.0196 11.2071 13.2071C11.0196 13.3946 10.7652 13.5 10.5 13.5H3.5C3.23478 13.5 2.98043 13.3946 2.79289 13.2071C2.60536 13.0196 2.5 12.7652 2.5 12.5V3.5Z"
-										stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+										stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
 									<path
 										d="M4.5 3.5V3C4.5 2.33696 4.76339 1.70107 5.23223 1.23223C5.70107 0.763392 6.33696 0.5 7 0.5C7.66304 0.5 8.29893 0.763392 8.76777 1.23223C9.23661 1.70107 9.5 2.33696 9.5 3V3.5"
-										stroke="black" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M5.5 6.50146V10.503" stroke="black" stroke-linecap="round"
+										stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M5.5 6.50146V10.503" stroke="#05445E" stroke-linecap="round"
 										stroke-linejoin="round" />
-									<path d="M8.5 6.50146V10.503" stroke="black" stroke-linecap="round"
+									<path d="M8.5 6.50146V10.503" stroke="#05445E" stroke-linecap="round"
 										stroke-linejoin="round" />
 								</g>
 								<defs>
@@ -216,26 +223,28 @@
 						<td>(123) 456-7890</td>
 						<td>John@Doe.com</td>
 
-						<td> <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+						<td width="17"> <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<path
 									d="M6.09965 13.6432L1.19263 15L2.56659 10.1542L11.5519 1.324C11.6534 1.22143 11.7748 1.13994 11.9086 1.0843C12.0425 1.02866 12.1863 1 12.3316 1C12.4768 1 12.6206 1.02866 12.7545 1.0843C12.8883 1.13994 13.0097 1.22143 13.1112 1.324L15.0413 3.24079C15.1435 3.3409 15.2246 3.46001 15.28 3.59122C15.3354 3.72245 15.3639 3.8632 15.3639 4.00536C15.3639 4.14751 15.3354 4.28827 15.28 4.41949C15.2246 4.55072 15.1435 4.66982 15.0413 4.76992L6.09965 13.6432Z"
-									stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+									stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
 							</svg>
 						</td>
+
 						<td width="15"> <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<g clip-path="url(#clip0_102_5191)">
-									<path d="M1 3.5H13" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M1 3.5H13" stroke="#05445E" stroke-linecap="round"
+										stroke-linejoin="round" />
 									<path
 										d="M2.5 3.5H11.5V12.5C11.5 12.7652 11.3946 13.0196 11.2071 13.2071C11.0196 13.3946 10.7652 13.5 10.5 13.5H3.5C3.23478 13.5 2.98043 13.3946 2.79289 13.2071C2.60536 13.0196 2.5 12.7652 2.5 12.5V3.5Z"
-										stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+										stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
 									<path
 										d="M4.5 3.5V3C4.5 2.33696 4.76339 1.70107 5.23223 1.23223C5.70107 0.763392 6.33696 0.5 7 0.5C7.66304 0.5 8.29893 0.763392 8.76777 1.23223C9.23661 1.70107 9.5 2.33696 9.5 3V3.5"
-										stroke="black" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M5.5 6.50146V10.503" stroke="black" stroke-linecap="round"
+										stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M5.5 6.50146V10.503" stroke="#05445E" stroke-linecap="round"
 										stroke-linejoin="round" />
-									<path d="M8.5 6.50146V10.503" stroke="black" stroke-linecap="round"
+									<path d="M8.5 6.50146V10.503" stroke="#05445E" stroke-linecap="round"
 										stroke-linejoin="round" />
 								</g>
 								<defs>
@@ -253,26 +262,28 @@
 						<td>(123) 456-7890</td>
 						<td>John@Doe.com</td>
 
-						<td> <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+						<td width="17"> <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<path
 									d="M6.09965 13.6432L1.19263 15L2.56659 10.1542L11.5519 1.324C11.6534 1.22143 11.7748 1.13994 11.9086 1.0843C12.0425 1.02866 12.1863 1 12.3316 1C12.4768 1 12.6206 1.02866 12.7545 1.0843C12.8883 1.13994 13.0097 1.22143 13.1112 1.324L15.0413 3.24079C15.1435 3.3409 15.2246 3.46001 15.28 3.59122C15.3354 3.72245 15.3639 3.8632 15.3639 4.00536C15.3639 4.14751 15.3354 4.28827 15.28 4.41949C15.2246 4.55072 15.1435 4.66982 15.0413 4.76992L6.09965 13.6432Z"
-									stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+									stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
 							</svg>
 						</td>
+
 						<td width="15"> <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<g clip-path="url(#clip0_102_5191)">
-									<path d="M1 3.5H13" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M1 3.5H13" stroke="#05445E" stroke-linecap="round"
+										stroke-linejoin="round" />
 									<path
 										d="M2.5 3.5H11.5V12.5C11.5 12.7652 11.3946 13.0196 11.2071 13.2071C11.0196 13.3946 10.7652 13.5 10.5 13.5H3.5C3.23478 13.5 2.98043 13.3946 2.79289 13.2071C2.60536 13.0196 2.5 12.7652 2.5 12.5V3.5Z"
-										stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+										stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
 									<path
 										d="M4.5 3.5V3C4.5 2.33696 4.76339 1.70107 5.23223 1.23223C5.70107 0.763392 6.33696 0.5 7 0.5C7.66304 0.5 8.29893 0.763392 8.76777 1.23223C9.23661 1.70107 9.5 2.33696 9.5 3V3.5"
-										stroke="black" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M5.5 6.50146V10.503" stroke="black" stroke-linecap="round"
+										stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M5.5 6.50146V10.503" stroke="#05445E" stroke-linecap="round"
 										stroke-linejoin="round" />
-									<path d="M8.5 6.50146V10.503" stroke="black" stroke-linecap="round"
+									<path d="M8.5 6.50146V10.503" stroke="#05445E" stroke-linecap="round"
 										stroke-linejoin="round" />
 								</g>
 								<defs>
@@ -290,26 +301,28 @@
 						<td>(123) 456-7890</td>
 						<td>John@Doe.com</td>
 
-						<td> <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+						<td width="17"> <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<path
 									d="M6.09965 13.6432L1.19263 15L2.56659 10.1542L11.5519 1.324C11.6534 1.22143 11.7748 1.13994 11.9086 1.0843C12.0425 1.02866 12.1863 1 12.3316 1C12.4768 1 12.6206 1.02866 12.7545 1.0843C12.8883 1.13994 13.0097 1.22143 13.1112 1.324L15.0413 3.24079C15.1435 3.3409 15.2246 3.46001 15.28 3.59122C15.3354 3.72245 15.3639 3.8632 15.3639 4.00536C15.3639 4.14751 15.3354 4.28827 15.28 4.41949C15.2246 4.55072 15.1435 4.66982 15.0413 4.76992L6.09965 13.6432Z"
-									stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+									stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
 							</svg>
 						</td>
+
 						<td width="15"> <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<g clip-path="url(#clip0_102_5191)">
-									<path d="M1 3.5H13" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M1 3.5H13" stroke="#05445E" stroke-linecap="round"
+										stroke-linejoin="round" />
 									<path
 										d="M2.5 3.5H11.5V12.5C11.5 12.7652 11.3946 13.0196 11.2071 13.2071C11.0196 13.3946 10.7652 13.5 10.5 13.5H3.5C3.23478 13.5 2.98043 13.3946 2.79289 13.2071C2.60536 13.0196 2.5 12.7652 2.5 12.5V3.5Z"
-										stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+										stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
 									<path
 										d="M4.5 3.5V3C4.5 2.33696 4.76339 1.70107 5.23223 1.23223C5.70107 0.763392 6.33696 0.5 7 0.5C7.66304 0.5 8.29893 0.763392 8.76777 1.23223C9.23661 1.70107 9.5 2.33696 9.5 3V3.5"
-										stroke="black" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M5.5 6.50146V10.503" stroke="black" stroke-linecap="round"
+										stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M5.5 6.50146V10.503" stroke="#05445E" stroke-linecap="round"
 										stroke-linejoin="round" />
-									<path d="M8.5 6.50146V10.503" stroke="black" stroke-linecap="round"
+									<path d="M8.5 6.50146V10.503" stroke="#05445E" stroke-linecap="round"
 										stroke-linejoin="round" />
 								</g>
 								<defs>
@@ -327,26 +340,28 @@
 						<td>(123) 456-7890</td>
 						<td>John@Doe.com</td>
 
-						<td> <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+						<td width="17"> <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<path
 									d="M6.09965 13.6432L1.19263 15L2.56659 10.1542L11.5519 1.324C11.6534 1.22143 11.7748 1.13994 11.9086 1.0843C12.0425 1.02866 12.1863 1 12.3316 1C12.4768 1 12.6206 1.02866 12.7545 1.0843C12.8883 1.13994 13.0097 1.22143 13.1112 1.324L15.0413 3.24079C15.1435 3.3409 15.2246 3.46001 15.28 3.59122C15.3354 3.72245 15.3639 3.8632 15.3639 4.00536C15.3639 4.14751 15.3354 4.28827 15.28 4.41949C15.2246 4.55072 15.1435 4.66982 15.0413 4.76992L6.09965 13.6432Z"
-									stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+									stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
 							</svg>
 						</td>
+
 						<td width="15"> <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
 								<g clip-path="url(#clip0_102_5191)">
-									<path d="M1 3.5H13" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M1 3.5H13" stroke="#05445E" stroke-linecap="round"
+										stroke-linejoin="round" />
 									<path
 										d="M2.5 3.5H11.5V12.5C11.5 12.7652 11.3946 13.0196 11.2071 13.2071C11.0196 13.3946 10.7652 13.5 10.5 13.5H3.5C3.23478 13.5 2.98043 13.3946 2.79289 13.2071C2.60536 13.0196 2.5 12.7652 2.5 12.5V3.5Z"
-										stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+										stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
 									<path
 										d="M4.5 3.5V3C4.5 2.33696 4.76339 1.70107 5.23223 1.23223C5.70107 0.763392 6.33696 0.5 7 0.5C7.66304 0.5 8.29893 0.763392 8.76777 1.23223C9.23661 1.70107 9.5 2.33696 9.5 3V3.5"
-										stroke="black" stroke-linecap="round" stroke-linejoin="round" />
-									<path d="M5.5 6.50146V10.503" stroke="black" stroke-linecap="round"
+										stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+									<path d="M5.5 6.50146V10.503" stroke="#05445E" stroke-linecap="round"
 										stroke-linejoin="round" />
-									<path d="M8.5 6.50146V10.503" stroke="black" stroke-linecap="round"
+									<path d="M8.5 6.50146V10.503" stroke="#05445E" stroke-linecap="round"
 										stroke-linejoin="round" />
 								</g>
 								<defs>
@@ -357,8 +372,6 @@
 							</svg>
 						</td>
 					</tr>
-
-
 				</tbody>
 			</table>
 		</div>

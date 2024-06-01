@@ -1,5 +1,4 @@
-
-const urlBase = 'http://localhost/Team-22-Small-Project-main-7/LAMPAPI';
+const urlBase = 'http://cop4331-22.xyz/LAMPAPI';
 const extension = 'php';
 
 let userId = 0;
@@ -281,47 +280,43 @@ function searchContact() {
 function deleteContact(button) {
 	// Find the parent table row
 	let row = button.closest('tr');
-
-	row.className = "confirm-delete";// fix
 	// Get the content of the first and second <td> elements
 	let firstName = row.cells[0].textContent;
 	let lastName = row.cells[1].textContent;
+	row.className = "confirm-delete";
 
-	let opt;
 	setTimeout(function () {
-		opt = confirm('Are you SURE you want to delete ' + firstName + ' ' + lastName + ' from your contact list?')
-	}, 0)
-
-	if (opt == true) {
-		// Prepare the data to send to the PHP delete page
-		let tmp = {
-			firstName: firstName,
-			lastName: lastName, id: userId
-		};
-		let jsonPayload = JSON.stringify(tmp);
-		let url = urlBase + '/DeleteContact.' + extension;
-
-		let xhr = new XMLHttpRequest();
-		xhr.open("POST", url, true);
-		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-		try {
-			xhr.onreadystatechange = function () {
-				if (this.readyState == 4 && this.status == 200) {
-					document.getElementById("contactSearchResult").innerHTML = "Contact has been DELETED";
-					setTimeout(function () {
-						document.getElementById("contactSearchResult").innerHTML = "";
-					}, 3000);
-					row.remove();
-				}
+		if (confirm('Are you SURE you want to delete ' + firstName + ' ' + lastName + ' from your contact list?')) {
+			// Prepare the data to send to the PHP delete page
+			let tmp = {
+				firstName: firstName,
+				lastName: lastName, id: userId
 			};
-			xhr.send(jsonPayload);
+			let jsonPayload = JSON.stringify(tmp);
+			let url = urlBase + '/DeleteContact.' + extension;
+
+			let xhr = new XMLHttpRequest();
+			xhr.open("POST", url, true);
+			xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+			try {
+				xhr.onreadystatechange = function () {
+					if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("contactSearchResult").innerHTML = "Contact has been DELETED";
+						setTimeout(function () {
+							document.getElementById("contactSearchResult").innerHTML = "";
+						}, 3000);
+						row.remove();
+					}
+				};
+				xhr.send(jsonPayload);
+			}
+			catch (err) {
+				document.getElementById("contactSearchResult").innerHTML = err.message;
+			}
+		} else {
+			row.className = "";
 		}
-		catch (err) {
-			document.getElementById("contactSearchResult").innerHTML = err.message;
-		}
-	} else {
-		row.className = "";
-	}
+	}, 0)
 }
 
 
@@ -629,7 +624,7 @@ function showContactTable2(contacts) {
 
 		// Create the second td with the SVG and onclick attribute
 		let td2 = document.createElement('td');
-		td2.setAttribute('onclick', 'deleteContact(this)');
+		td2.setAttribute("onclick", "deleteContact(this)");
 		td2.setAttribute('width', '15');
 
 		let svg2 = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -706,10 +701,22 @@ function showContactTable2(contacts) {
 function refreshTable() {
 	let table = document.getElementById("contact-body");
 
-	while (table.hasChildNodes) {
-		table.removeChild(table.lastChild);
+	while (table.firstChild) {
+		table.removeChild(table.firstChild);
 	}
 
 }
+function isSafari() {
+	return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+}
 
+function disableSafariAnimations() {
+	if (isSafari()) {
+		var elements = document.querySelectorAll('.color-left, .color-bottom, .color-right');
+		elements.forEach(function (element) {
+			element.style.animation = 'none';
+			element.style.webkitAnimation = 'none';
+		});
+	}
+}
 
