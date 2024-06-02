@@ -1,4 +1,4 @@
-const urlBase = 'http://cop4331-22.xyz/LAMPAPI';
+const urlBase = 'http://www.cop4331-22.xyz/LAMPAPI';
 const extension = 'php';
 
 let userId = 0;
@@ -229,7 +229,7 @@ function appendContactForm() {
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                         d="M3.25369 4.36099C3.25369 2.78091 4.5346 1.5 6.11468 1.5C7.69477 1.5 8.97567 2.78091 8.97567 4.36099C8.97567 4.58593 8.94986 4.80389 8.90135 5.01244C8.8075 5.41588 9.05848 5.81902 9.46192 5.91286C9.86537 6.00671 10.2685 5.75573 10.3623 5.35229C10.4366 5.03311 10.4757 4.70114 10.4757 4.36099C10.4757 1.95248 8.52319 0 6.11468 0C3.70617 0 1.75369 1.95248 1.75369 4.36099C1.75369 4.70114 1.79278 5.03311 1.86702 5.35229C1.96087 5.75573 2.364 6.00671 2.76744 5.91286C3.17089 5.81902 3.42186 5.41588 3.32802 5.01244C3.27951 4.80389 3.25369 4.58593 3.25369 4.36099ZM4.88338 9.69608V4.25939C4.88338 3.56385 5.44723 3 6.14277 3C6.83831 3 7.40215 3.56385 7.40215 4.25938V8.3363H9.8659C11.2869 8.33631 12.4389 9.48828 12.4389 10.9093V13C12.4389 13.5523 11.9912 14 11.4389 14H4.83147C4.50232 14 4.19424 13.838 4.00765 13.5669L3.24366 12.4565C2.54067 11.4348 3.12077 10.0278 4.33954 9.79843L4.88338 9.69608Z"
-                        fill="white" />
+                        fill="#05435e" />
                 </svg>
             </button>
         </div><span id="addContactResult"></span>
@@ -246,7 +246,7 @@ function appendContactForm() {
 function searchContact() {
 	let newSearchContact = document.getElementById("searchContactText").value;
 	document.getElementById("contactSearchResult").innerHTML = "";
-
+	refreshTable();
 	let tmp = {
 		search: newSearchContact, userId: userId
 	};
@@ -275,15 +275,20 @@ function searchContact() {
 		document.getElementById("contactSearchResult").innerHTML = err.message;
 	}
 }
-
+function changeRow(row) {
+	row.className = "confirm-delete";
+}
 // <-------------------- DELETE CONTACT --------------------->
 function deleteContact(button) {
 	// Find the parent table row
 	let row = button.closest('tr');
+	setTimeout(function () {
+		row.className = "confirm-delete";
+	}, 1);
 	// Get the content of the first and second <td> elements
 	let firstName = row.cells[0].textContent;
 	let lastName = row.cells[1].textContent;
-	row.className = "confirm-delete";
+
 
 	setTimeout(function () {
 		if (confirm('Are you SURE you want to delete ' + firstName + ' ' + lastName + ' from your contact list?')) {
@@ -314,9 +319,9 @@ function deleteContact(button) {
 				document.getElementById("contactSearchResult").innerHTML = err.message;
 			}
 		} else {
-			row.className = "";
-		}
-	}, 0)
+
+		} row.className = "";
+	}, 300)
 }
 
 

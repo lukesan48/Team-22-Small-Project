@@ -76,6 +76,7 @@ body {
 }
 
 .log-out a {
+    color: white;
     display: flex;
     text-transform: uppercase;
     padding: 0;
@@ -313,7 +314,7 @@ hr[class="search-line"] {
 }
 
 .fake-search-model p {
-    margin-bottom: 0;
+    margin-bottom: 1em;
 }
 
 /* CONTACT TABLE */
@@ -321,7 +322,7 @@ hr[class="search-line"] {
 .contact-table {
     text-align: center;
     width: 70%;
-    border: 1px solid black;
+    border: 2px solid #05435e;
     border-radius: 0.5em;
     padding: 1.2rem 1.5rem;
 
@@ -345,10 +346,19 @@ hr[class="search-line"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 1.4s ease;
+    border-radius: 100rem;
+}
+
+.refresh-button a svg:hover {
+    transform: rotate(360deg);
+    transition: all 1.4s ease;
+    stroke: #05435e;
 }
 
 .refresh-button a {
     padding-left: 0.4em;
+    transition: all 1.4s ease;
 }
 
 tbody svg {
@@ -383,8 +393,13 @@ thead tr:nth-child(2) th {
     background-color: rgba(255, 255, 0, 0.451);
 }
 
+tr[id*="data-row"] {
+    transition: all 0.4s ease;
+}
+
 .confirm-delete {
     background-color: rgba(255, 107, 107, 0.691);
+    transition: all 0.4s ease;
 }
 
 .display-table {
@@ -406,7 +421,7 @@ thead tr:nth-child(2) th {
 }
 
 /* SEARCH AREA */
-.search-model {
+#profile-contact-table .search-model {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -416,22 +431,43 @@ thead tr:nth-child(2) th {
     color: #05445E;
 }
 
-.search-model>input {
+input::placeholder {
+    color: rgba(255, 255, 255, 0.527);
+}
+
+#profile-contact-table .search-model>input {
+    background-color: transparent;
     margin-left: 3em;
     text-align: center;
     width: 50%;
-    border-bottom: 1px solid black;
+    border-bottom: 1.5px solid #05435e;
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+#profile-contact-table .search-model>input::placeholder {
+    color: rgba(0, 0, 0, 0.653);
 }
 
 .search-model>input:hover {
-    background-color: rgba(128, 128, 128, 0.197);
-    border-top-right-radius: 0.5em;
-    border-top-left-radius: 0.5em;
+    background-color: rgba(0, 0, 0, 1);
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    transition: all 0.3s ease;
+    transform: translateY(-3px);
+}
+
+#profile-contact-table .search-model button:hover {
+    transition: all 0.3s ease;
+    background-color: #05435e9b;
+    color: white;
 }
 
 .search-key-text {
     font-size: 0.9rem;
     font-weight: 300;
+    color: #032f42;
 }
 
 .search-key-text span {
@@ -468,9 +504,7 @@ thead tr:nth-child(2) th {
     color: black;
 }
 
-
 /* PROFILE PAGE STYLING */
-
 .welcome-header,
 .profile-card,
 #profile-contact-table,
@@ -517,12 +551,17 @@ thead tr:nth-child(2) th {
     height: 60%;
 }
 
+.profile-card,
+.welcome-header {
+    height: 50%;
+}
+
 .card-content {
     display: flex;
     width: 100%;
     height: 65%;
-    border: 1px solid black;
-    border-radius: 0.6em;
+    border: 2px solid #05435e;
+    border-radius: 0.8em;
     flex-wrap: wrap;
 }
 
@@ -533,10 +572,16 @@ thead tr:nth-child(2) th {
     font-weight: 500;
     font-size: 1.2rem;
     height: 4rem;
-    background-color: black;
+    background-color: #05435ed9;
     color: white;
     border-top-left-radius: 0.4em;
     border-top-right-radius: 0.4em;
+}
+
+.profile-photo img {
+    height: 70%;
+    width: 48%;
+    mix-blend-mode: overlay;
 }
 
 .profile-photo,
@@ -593,8 +638,13 @@ thead tr:nth-child(2) th {
 #profile-contact-table {
     align-items: flex-start;
     width: 100%;
+    height: 100%;
 }
 
+#profile-contact-table .contact-table {
+    background-color: white;
+    color: #05435e;
+}
 
 /*  FORM DIVS */
 #profile-contact-table .contactDiv {
@@ -606,6 +656,8 @@ thead tr:nth-child(2) th {
 #profile-contact-table .add-contact>button {
     margin-left: 14em;
 }
+
+#profile-contact-table table
 
 /* ADDING CONTACTS STYLING */
 #adding-contact {
@@ -625,12 +677,13 @@ thead tr:nth-child(2) th {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(128, 128, 128, 0.423);
+    background-color: #d4f1f4;
     padding: 1.3em;
-    font-weight: 600;
+    font-weight: 700;
     border-top-left-radius: 0.4em;
     border-top-right-radius: 0.4em;
     margin-bottom: 2em;
+    color: #05435e;
 }
 
 #add-contact-header p {
@@ -645,11 +698,23 @@ thead tr:nth-child(2) th {
     width: 100%;
     padding: 2.3em 1em;
     padding-bottom: 0.5em;
+
+}
+
+#add-contact-button button {
+    background-color: #75E6DA;
+    border: 1px solid #75E6DA;
+    color: #05435e;
 }
 
 .contact-border {
-    border: 1px solid;
+    background-color: rgba(255, 255, 255, 0.232);
+    width: 70%;
+    border: 1px solid rgba(139, 242, 253, 0.773);
     margin-bottom: 3em;
+    border-radius: 0.8em;
+    box-shadow: 0px 16px 48px 0px rgba(0, 0, 0, 0.6);
+    transition: all 2s ease;
 }
 
 #add-user-inputs {
@@ -663,24 +728,38 @@ thead tr:nth-child(2) th {
 }
 
 #add-user-inputs input {
-    border: 1px solid black;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #05435e;
     border-top-right-radius: 0.34em;
     border-bottom-right-radius: 0.34em;
     padding: 0.34em;
     text-align: center;
     font-weight: 600;
+    border-left: 0;
+    transition: all 0.5s ease;
+    color: black;
+}
+
+#add-user-inputs input::placeholder {
+    color: black;
+}
+
+#add-user-inputs input:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: all 0.5s ease;
 }
 
 #add-user-inputs label {
-    border: 1px solid black;
+    border: 1px solid #05435e;
     margin: 0.3em;
     text-align: center;
-    background-color: black;
-    color: white;
+    background-color: #D4F1F4;
+    color: #05435e;
     padding: 0.5em 1em;
     margin-right: 0;
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
+    border-right: 0;
 }
 
 #add-user-inputs div:nth-child(1) input {

@@ -43,7 +43,22 @@
     -webkit-animation: up 30s infinite;
 }
 
+tr input[type="tel"] {
+    width: 150px;
+}
 
+tr input[type="email"] {
+    width: 300px;
+}
+
+.log-out a {
+    color: white;
+}
+
+.log-out a:hover {
+    transition: all 0.5s ease;
+    transform: translatex(-7px);
+}
 
 /* BACKGROUND ANIMATION  */
 @keyframes up {
