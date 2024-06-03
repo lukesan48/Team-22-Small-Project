@@ -55,9 +55,45 @@ tr input[type="email"] {
     color: white;
 }
 
+.change-action a[href*="login.html"] {
+    color: black;
+    background: none;
+    border: none;
+    font-size: 1.2em;
+}
+
+.login-retarget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#mini-login a:hover {
+    font-weight: 600;
+    border: none;
+    background: none;
+    text-decoration: underline;
+}
+
+.login-retarget a svg path {
+    stroke: black;
+}
+
 .log-out a:hover {
     transition: all 0.5s ease;
     transform: translatex(-7px);
+}
+
+#error-signup-section,
+#error-login-section {
+    text-align: center;
+    color: black;
+    margin: 1em;
+}
+
+#user-signup:last-child {
+    flex-direction: column;
 }
 
 /* BACKGROUND ANIMATION  */

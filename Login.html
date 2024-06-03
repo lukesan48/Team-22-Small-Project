@@ -1,114 +1,155 @@
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Contact Manager - Log In</title>
     <script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript" src="js/code.js"></script>
+
     <link href="css/reset.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/styles2.css" rel="stylesheet">
+    <script type="text/javascript">
+
+        document.addEventListener('DOMContentLoaded', function () {
+            disableSafariAnimations();
+        }, false);
+    </script>
+
 </head>
 
 <body>
+    <div class="color-left color"></div>
+    <div class="color-bottom color"></div>
+    <div class="color-right color"></div>
 
-	<nav id="website-nav">
-		<ul class="website-nav logo">
-			<li class="website-nav img">
-                <img src="images/web-logo-black.png" alt="ContactManager-Logo-Pencil-on-top-of-Book">
-			</li>
-			<li class="website-nav website-name">
-				<p>ContactManager</p>
-			</li>
-		</ul>
+    <nav id="website-nav">
+        <ul class="website-nav logo">
+            <li class="website-nav-svg">
+                <svg id="logo-svg svg" width="30" height="34" viewBox="0 0 30 34" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M15.4997 15.8981C13.5245 14.5552 10.5608 12.2051 2.06641 12.2051V29.0207C10.5608 29.0207 13.5245 31.3708 15.4997 32.7138V15.8981Z"
+                        stroke="#FEFCFE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                        d="M15.5007 15.8981C17.4759 14.5552 20.4396 12.2051 28.9339 12.2051V29.0207C20.4396 29.0207 17.4759 31.3708 15.5007 32.7138V15.8981Z"
+                        stroke="#FEFCFE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                        d="M25.4454 1.26587H7.79924C7.30626 1.26587 6.8231 1.39258 6.40436 1.63168L1.75928 4.2841L6.40436 6.93649C6.8231 7.1756 7.30626 7.3023 7.79924 7.3023H25.4454C27.2595 7.3023 28.73 5.95102 28.73 4.2841C28.73 2.61717 27.2595 1.26587 25.4454 1.26587Z"
+                        stroke="#FEFCFE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M20.7483 1.39575V7.30243" stroke="#FEFCFE" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </li>
+            <li class="website-nav website-name">
+                <p>MyContact</p>
+            </li>
+        </ul>
 
-		<li class="website-nav button link enter-link">
-			<a href="index.html">HOME
-				<!-- ENTER WEBSITE ICON SVG PATHS-->
-				<svg class="svg" width="26" height="21" viewBox="0 0 19 18" fill="none"
-					xmlns="http://www.w3.org/2000/svg">
-					<path
-						d="M7.07666 1.72956C7.07666 1.06034 7.61916 0.517822 8.28839 0.517822H16.7705C17.4397 0.517822 17.9823 1.06034 17.9823 1.72956V16.2703C17.9823 16.9397 17.4397 17.4821 16.7705 17.4821H12.5295"
-						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-					<path
-						d="M11.0148 9.00122C12.1863 9.00122 13.136 8.05152 13.136 6.88C13.136 5.70849 12.1863 4.75879 11.0148 4.75879C9.84325 4.75879 8.89355 5.70849 8.89355 6.88C8.89355 8.05152 9.84325 9.00122 11.0148 9.00122Z"
-						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-					<path
-						d="M3.44141 7.78833L5.90876 7.78836C6.26869 7.78836 6.61388 7.93135 6.86838 8.18585L10.3145 11.6319C10.569 11.8865 10.9142 12.0294 11.2741 12.0294L13.1353 12.0294"
-						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-					<path d="M8.28847 9.60571L5.05076 12.8434C4.79626 13.0979 4.45105 13.2409 4.09113 13.2409H1.01807"
-						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-					<path d="M5.86475 12.0293L7.89072 14.0553C8.14523 14.3097 8.28822 14.655 8.28822 15.0149V17.4821"
-						stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-				</svg>
-			</a>
-		</li>
-	</nav>
-
-    <br>
-    <br>
-    <br>
-
-    <div id="loginDiv">
-        <span id="inner-title">
-            <!-- WELCOME BACK ICON SVG PATHS-->
-            <svg class="svg" width="26" height="21" viewBox="0 0 14 14" fill="none" style="vertical-align:text-bottom；"
-                xmlns="http://www.w3.org/2000/svg"> 
-                <path d="M13.0442 3.93782C13.0076 3.37229 12.8097 2.8556 12.4983 2.42969"
-                    stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M3.41699 1.56439C3.73144 1.09291 4.16115 0.744381 4.64381 0.53125"
-                    stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-                <path
-                    d="M3.16844 12.0111L2.82257 11.6176C2.34257 11.0714 1.96585 10.4425 1.71077 9.7616L1.02344 7.9268C0.853256 7.47249 0.996914 6.96027 1.37853 6.66072C1.95092 6.21142 2.79341 6.42313 3.08541 7.08964L3.66589 8.41465C4.10088 8.53121 5.09824 8.98494 5.60774 9.86741"
-                    stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-                <path
-                    d="M3.66626 8.41619L5.12321 2.97881C5.28414 2.37821 5.90148 2.02179 6.50207 2.18272C7.10267 2.34365 7.45909 2.96099 7.29816 3.56158L6.424 6.82402L7.64783 2.25661C7.80876 1.65601 8.4261 1.29959 9.0267 1.46052C9.62729 1.62145 9.98371 2.23879 9.82278 2.83939L8.4824 7.84179L9.24001 5.01434C9.40094 4.41375 10.0183 4.05733 10.6189 4.21826C11.2195 4.37918 11.5759 4.99652 11.415 5.59712L9.70621 11.9742C9.56892 12.4866 9.23372 12.9234 8.77436 13.1887L8.3887 13.4113"
-                    stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            Welcome back
-        </span>
-
-        <div class="login-fields">
-            <label class="username-label signup-login-label">Username</label>
-            <input class="username-input" style="border-radius:0%;border-color:grey;" type="text" id="loginName" placeholder="Enter your Username" /><br />
-
-            <label class="password-label signup-login-label">Password</label>
-            <input class="password-input" style="border-radius:0%;border-color:grey;" type="password" id="loginPassword" placeholder="Enter your Password" /><br />
-        </div>
-
-        <button type="button" id="loginButton" class="buttons" onclick="doLogin()"> GO TO CONTACTS </button>
-        <span id="loginResult"></span>
-    </div>
-
-    <br>
-
-    <div class="action-buttons" style="justify-content:center;"> 
+        <ul class="website-nav items">
+            <li class="website-nav about-us link"> <a href="aboutUs.html">Meet the Team</a></li>
+        </ul>
         <ul>
-            <li>Need an Account?</li>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="button link enter-link get-started">
-                <a href="SignUp.html">SIGN UP
-                    <!-- SIGN UP WEBSITE ICON SVG PATHS-->
-                    <svg class="svg" width="26" height="21" viewBox="0 0 14 14" fill="none"
+            <li class="website-nav button link enter-link">
+                <a href="index.html">HOME
+                    <!-- ENTER WEBSITE ICON SVG PATHS-->
+                    <svg class="svg hand-svg" width="26" height="21" viewBox="0 0 19 18" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.0442 3.93782C13.0076 3.37229 12.8097 2.8556 12.4983 2.42969"
-                            stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M3.41699 1.56439C3.73144 1.09291 4.16115 0.744381 4.64381 0.53125"
-                            stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
                         <path
-                            d="M3.16844 12.0111L2.82257 11.6176C2.34257 11.0714 1.96585 10.4425 1.71077 9.7616L1.02344 7.9268C0.853256 7.47249 0.996914 6.96027 1.37853 6.66072C1.95092 6.21142 2.79341 6.42313 3.08541 7.08964L3.66589 8.41465C4.10088 8.53121 5.09824 8.98494 5.60774 9.86741"
-                            stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                            d="M7.07666 1.72956C7.07666 1.06034 7.61916 0.517822 8.28839 0.517822H16.7705C17.4397 0.517822 17.9823 1.06034 17.9823 1.72956V16.2703C17.9823 16.9397 17.4397 17.4821 16.7705 17.4821H12.5295"
+                            stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
                         <path
-                            d="M3.66626 8.41619L5.12321 2.97881C5.28414 2.37821 5.90148 2.02179 6.50207 2.18272C7.10267 2.34365 7.45909 2.96099 7.29816 3.56158L6.424 6.82402L7.64783 2.25661C7.80876 1.65601 8.4261 1.29959 9.0267 1.46052C9.62729 1.62145 9.98371 2.23879 9.82278 2.83939L8.4824 7.84179L9.24001 5.01434C9.40094 4.41375 10.0183 4.05733 10.6189 4.21826C11.2195 4.37918 11.5759 4.99652 11.415 5.59712L9.70621 11.9742C9.56892 12.4866 9.23372 12.9234 8.77436 13.1887L8.3887 13.4113"
-                            stroke="#FEFCFE" stroke-linecap="round" stroke-linejoin="round" />
+                            d="M11.0148 9.00122C12.1863 9.00122 13.136 8.05152 13.136 6.88C13.136 5.70849 12.1863 4.75879 11.0148 4.75879C9.84325 4.75879 8.89355 5.70849 8.89355 6.88C8.89355 8.05152 9.84325 9.00122 11.0148 9.00122Z"
+                            stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M3.44141 7.78833L5.90876 7.78836C6.26869 7.78836 6.61388 7.93135 6.86838 8.18585L10.3145 11.6319C10.569 11.8865 10.9142 12.0294 11.2741 12.0294L13.1353 12.0294"
+                            stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M8.28847 9.60571L5.05076 12.8434C4.79626 13.0979 4.45105 13.2409 4.09113 13.2409H1.01807"
+                            stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M5.86475 12.0293L7.89072 14.0553C8.14523 14.3097 8.28822 14.655 8.28822 15.0149V17.4821"
+                            stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </a>
             </li>
         </ul>
+    </nav>
+
+    <div class="main-content action-area">
+        <section id="user-login">
+            <section id="log-in-header">
+                <p>Welcome back!</p> <svg class="svg" width="46" height="50" viewBox="0 0 40 46" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M38.1328 11.8135C38.023 10.1169 37.4293 8.56679 36.4951 7.28906" stroke="#FEFCFE"
+                        stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M9.25085 4.69317C10.1942 3.27873 11.4833 2.23314 12.9313 1.59375" stroke="#FEFCFE"
+                        stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                        d="M8.50533 36.0333L7.46772 34.8528C6.02772 33.2142 4.89756 31.3275 4.13232 29.2848L2.07033 23.7804C1.55977 22.4175 1.99074 20.8808 3.1356 19.9821C4.85277 18.6342 7.38024 19.2694 8.25624 21.2689L9.99768 25.2439C11.3027 25.5936 14.2947 26.9548 15.8232 29.6022"
+                        stroke="#FEFCFE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                        d="M9.99878 25.2486L14.3696 8.93642C14.8524 7.13462 16.7044 6.06536 18.5062 6.54815C20.308 7.03094 21.3773 8.88296 20.8945 10.6847L18.272 20.472L21.9435 6.76982C22.4263 4.96802 24.2783 3.89876 26.0801 4.38155C27.8819 4.86434 28.9511 6.71636 28.4683 8.51816L24.4472 23.5254L26.72 15.043C27.2028 13.2412 29.0548 12.172 30.8566 12.6548C32.6584 13.1375 33.7276 14.9895 33.2449 16.7913L28.1186 35.9227C27.7068 37.4599 26.7012 38.7703 25.3231 39.5662L24.1661 40.234"
+                        stroke="#FEFCFE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </section>
+
+            <div id="add-login-inputs">
+                <div>
+                    <label for="loginName"> Username </label>
+                    <input type="text" id="loginName" placeholder="Enter your Username" required />
+                </div>
+                <div>
+                    <label for="loginPassword"> Password </label>
+                    <input type="password" id="loginPassword" placeholder="Enter your Password" required>
+                </div>
+            </div>
+
+            <!-- WHERE USER GETS ERROR MESSAGES -->
+            <section id="error-login-section">
+            </section>
+
+            <div id="log-in-button">
+                <button type="button" id="loginButton" class="buttons" onclick="doLogin()"> &rarr; Go to Contacts
+                </button>
+            </div><span id="loginResult"></span>
+        </section>
+
+        <section class="change-action">
+            <p class="retarget-text">Need an Account? </p>
+            <div class="button link enter-link get-started">
+                <a href="signup.html"> Sign up
+                    <!-- GET STARTED WEBSITE ICON SVG PATHS-->
+                    <svg class="svg" width="26" height="21" viewBox="0 0 14 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_111_6916)">
+                            <path d="M13.0442 3.93782C13.0076 3.37229 12.8097 2.8556 12.4983 2.42969" stroke="#05445E"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M3.41699 1.56439C3.73144 1.09291 4.16115 0.744381 4.64381 0.53125" stroke="#05445E"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M3.16844 12.0111L2.82257 11.6176C2.34257 11.0714 1.96585 10.4425 1.71077 9.7616L1.02344 7.9268C0.853256 7.47249 0.996914 6.96027 1.37853 6.66072C1.95092 6.21142 2.79341 6.42313 3.08541 7.08964L3.66589 8.41465C4.10088 8.53121 5.09824 8.98494 5.60774 9.86741"
+                                stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M3.66626 8.41619L5.12321 2.97881C5.28414 2.37821 5.90148 2.02179 6.50207 2.18272C7.10267 2.34365 7.45909 2.96099 7.29816 3.56158L6.424 6.82402L7.64783 2.25661C7.80876 1.65601 8.4261 1.29959 9.0267 1.46052C9.62729 1.62145 9.98371 2.23879 9.82278 2.83939L8.4824 7.84179L9.24001 5.01434C9.40094 4.41375 10.0183 4.05733 10.6189 4.21826C11.2195 4.37918 11.5759 4.99652 11.415 5.59712L9.70621 11.9742C9.56892 12.4866 9.23372 12.9234 8.77436 13.1887L8.3887 13.4113"
+                                stroke="#05445E" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_111_6916">
+                                <rect width="14" height="14" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </a>
+            </div>
+        </section>
     </div>
-
 </body>
-
 <footer>
-	<p class="footer">Contact Manager Project Made by Group 22 for COP4331</p>
+    <p class="footer">Contact Manager Project Made by Group 22 for COP4331</p>
 </footer>
 
 </html>
