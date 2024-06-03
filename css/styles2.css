@@ -55,7 +55,7 @@ tr input[type="email"] {
     color: white;
 }
 
-.change-action a[href*="login.html"] {
+.change-action a[href*="Login.html"] {
     color: black;
     background: none;
     border: none;
