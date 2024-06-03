@@ -81,4 +81,56 @@ tr input[type="email"] {
 }
 
 .log-out a:hover {
-    transition: all 0.5s ease
+    transition: all 0.5s ease;
+    transform: translatex(-7px);
+}
+
+#error-signup-section,
+#error-login-section {
+    text-align: center;
+    color: black;
+    margin: 1em;
+}
+
+#user-signup:last-child {
+    flex-direction: column;
+}
+
+/* BACKGROUND ANIMATION  */
+@keyframes up {
+
+    0%,
+    100% {
+        bottom: -300px;
+    }
+
+    70% {
+        bottom: 600px;
+    }
+}
+
+@keyframes left {
+
+    0%,
+    100% {
+        left: -60px;
+    }
+
+    70% {
+        left: 1200px;
+    }
+}
+
+
+
+@keyframes down {
+
+    0%,
+    100% {
+        top: -1000px;
+    }
+
+    70% {
+        top: 50px;
+    }
+}
