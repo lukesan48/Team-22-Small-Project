@@ -43,7 +43,7 @@ function doLogin() {
 
 				saveCookie();
 
-				window.location.href = "color.html";
+				window.location.href = "Contacts.html";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -143,7 +143,6 @@ function doLogout() {
 	window.location.href = "index.html";
 }
 // <-------------------- ADD (CREATE) CONTACT --------------------->
-// COMPLETED; Modify to Add contacts - J
 function addContact() {
 	let newFirstName = document.getElementById("addFirstNameText").value;
 	let newLastName = document.getElementById("addLastNameText").value;
@@ -174,7 +173,6 @@ function addContact() {
 				setTimeout(function () {
 					clearForm();
 				}, 3000);
-
 			}
 		};
 		xhr.send(jsonPayload);
@@ -195,7 +193,9 @@ function clearForm() {
 	}
 	form.style.setProperty("border", "none");
 	form.style.setProperty("margin-bottom", "0");
+	form.classList.remove('contact-border');
 }
+
 function appendContactForm() {
 	var htmlContent = `
         <section id="add-contact-header">
@@ -709,7 +709,7 @@ function refreshTable() {
 	while (table.firstChild) {
 		table.removeChild(table.firstChild);
 	}
-
+	clearForm();
 }
 function isSafari() {
 	return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
