@@ -9,7 +9,7 @@
     filter: blur(140px);
     -webkit-filter: blur(140px);
     background: radial-gradient(circle at 50% 50%, #05445E 60%, #189ab4de 10%, #D4F1F4);
-    animation: down 13s infinite;
+    animation: down 30s infinite;
     -webkit-animation: down 30s infinite;
 }
 
@@ -24,7 +24,7 @@
     filter: blur(100px);
     -webkit-filter: blur(100px);
     background: radial-gradient(circle at 50% 50%, #05445E 60%, #189ab4de 20%, #D4F1F4);
-    animation: left 13s infinite;
+    animation: left 30s infinite;
     -webkit-animation: left 30s infinite;
 }
 
@@ -39,7 +39,7 @@
     filter: blur(100px);
     -webkit-filter: blur(100px);
     background: radial-gradient(circle at 50% 50%, #05445E 40%, #189AB4 40%, #D4F1F4);
-    animation: up 13s infinite;
+    animation: up 30s infinite;
     -webkit-animation: up 30s infinite;
 }
 
@@ -92,8 +92,73 @@ tr input[type="email"] {
     margin: 1em;
 }
 
-#user-signup:last-child {
+/* #user-signup:last-child {
     flex-direction: column;
+} */
+
+/* #profile-contact-table table {
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+} */
+
+.let-flow {
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+/* FORM VALIDATION STYLING */
+#new-user-inputs div[class*='error'],
+#add-user-inputs div[class*='error'] {
+    font-size: 1em;
+    font-weight: 600;
+    color: red;
+
+}
+
+#new-user-inputs div[class*='error']:nth-child(1),
+#new-user-inputs div[class*='error']:nth-child(2) {
+    margin-bottom: 3em;
+}
+
+#new-user-inputs div[class*='error']:nth-child(4) {
+    margin-bottom: 6.5em;
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+#new-user-inputs .success>label,
+#add-user-inputs .success>label {
+    background-color: #09c372;
+    border: 1px solid #09c372;
+}
+
+#new-user-inputs .success input,
+#add-user-inputs .success input {
+    border: 1px solid #09c372;
+}
+
+
+#new-user-inputs .error>label,
+#add-user-inputs .error>label {
+    background-color: #ff3860;
+    border: 2px solid #ff3860;
+}
+
+
+#new-user-inputs .error input,
+#add-user-inputs .error input {
+    border: 2px solid #ff3860;
+}
+
+#pass-error {
+    margin: 1em;
+}
+
+#adding-contact {
+    content-visibility: hidden;
 }
 
 /* BACKGROUND ANIMATION  */
@@ -120,8 +185,6 @@ tr input[type="email"] {
         left: 1200px;
     }
 }
-
-
 
 @keyframes down {
 

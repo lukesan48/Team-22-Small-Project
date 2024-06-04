@@ -1,4 +1,5 @@
 const urlBase = 'http://cop4331-22.xyz/LAMPAPI';
+// const urlBase = 'http://localhost/Team-22-Small-Project-main-7/LAMPAPI';
 const extension = 'php';
 
 let userId = 0;
@@ -51,7 +52,6 @@ function doLogin() {
 	catch (err) {
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
-
 }
 
 function saveCookie() {
@@ -133,6 +133,175 @@ function doSignUp() {
 	}
 }
 
+// VALIDATION HELPER FUNCTIONS
+
+const setError = (element, message) => {
+	const inputControl = element.parentElement;
+	const errorDisplay = inputControl.querySelector('.error');
+
+
+	errorDisplay.innerHTML = message;
+	inputControl.classList.add('error');
+	inputControl.classList.remove('success')
+}
+
+const setSuccess = element => {
+	const inputControl = element.parentElement;
+	const errorDisplay = inputControl.querySelector('.error');
+
+	errorDisplay.innerText = '';
+	inputControl.classList.add('success');
+	inputControl.classList.remove('error');
+};
+
+function validateData(string, qNum) {
+	let correct;
+	let incorrect;
+	// FORM INPUTS
+
+	switch (qNum) {
+		case 0: // first name
+			correct = /^[A-Z][a-z]*$/;
+			incorrect = [/\d/, /^[A-Z]/];
+
+			let firstName = document.getElementById('name1');
+			if (string.length > 0 && string.match(correct)) {
+				setSuccess(firstName);
+				return false; // returns false if valid
+			}
+			else {
+				if (string.length == 0) {
+					setError(firstName, 'First Name is required');
+					return true;
+				} else {
+					if (string.match(incorrect[0]) && !(string.match(incorrect[1]))) {
+						setError(firstName, 'First letter capitalization & letters only');
+						return true;
+					}
+					else if (!(string.match(incorrect[1]))) {
+						setError(firstName, 'Capitalize the first letter');
+						return true;
+					}
+					else if (string.match(incorrect[0])) {
+						setError(firstName, 'Letters only please');
+						return true;
+					}
+				}
+			}
+			break;
+		case 1: // last name
+			correct = /^[A-Z][a-z ']*$/;
+			incorrect = [/\d/, /^[A-Z]/];
+
+			let lastName = document.getElementById('name2');
+			if (string.length > 0 && string.match(correct)) {
+				setSuccess(lastName);
+				return false; // returns false if valid
+			} else {
+				if (string.length == 0) {
+					setError(lastName, 'Last Name is required');
+					return true;
+				} else {
+					if (string.match(incorrect[0]) && !(string.match(incorrect[1]))) {
+						setError(lastName, 'First letter capitalization & letters only');
+						return true;
+					}
+					else if (!(string.match(incorrect[1]))) {
+						setError(lastName, 'Capitalize the first letter!');
+						return true;
+					}
+					else if (string.match(incorrect[0])) {
+						setError(lastName, 'Letters, spaces, or apostrophes only');
+						return true;
+					}
+				}
+			}
+			break;
+		case 2: // USERNAME
+			let username = document.getElementById('signUpName');
+			if (string.length > 0) {
+				setSuccess(username);
+				return false; // returns false if valid
+			} else {
+				if (string.length == 0) {
+					document.getElementById('user-err').innerText = 'username cannot be empty';
+					return true;
+				}
+			}
+			break;
+		case 3: // PASSWORD
+			correct = /(?=.*?[0-9]).{8,}$/;
+			let key_parts = [
+				/(?=.*?[0-9])/, // one digit
+				/.{8,}$/ // minimum eight in length
+			];
+			let len = string.length;
+			let password = document.getElementById('signUpPassword');
+			if (string.length > 0 && correct.test(string)) {
+				setSuccess(password);
+				return false; // returns false if valid
+			} else {
+				if (len == 0) {
+					setError(password, `<p>Password cannot be empty</p>`);
+					return true;
+				} else {
+					if (!(string.match(key_parts[0])) && !(string.match(key_parts[1]))) {
+						setError(password, `<p>Password needs a digit</p>
+                                            <p>Password must be 8+ characters</p>`);
+						return true;
+					}
+					else if (!(string.match(key_parts[0]))) {
+						setError(password, `<p>Password needs a digit</p>`);
+						return true;
+					}
+					else if (!(string.match(key_parts[1]))) {
+						setError(password, `<p>Password must be 8+ characters</p>`);
+						return true;
+					}
+				}
+			}
+			break;
+		default: ;
+	}
+}
+
+// form setup
+function setupForm() {
+
+	let error_array = new Array(); // handles all of the errors found and doesn't submit until valid
+
+	// first question - first name
+	document.newUser.fName.onblur = function () {
+		error_array["first_name"] = validateData(this.value, 0);
+	};
+
+	// second question - last name
+	document.newUser.lName.onblur = function () {
+		error_array["last_name"] = validateData(this.value, 1);
+	};
+
+	// third question - username
+	document.newUser.userName.onblur = function () {
+		error_array["user_name"] = validateData(this.value, 2);
+	};
+	// fourth question - password
+	document.newUser.password.onblur = function () {
+		error_array["password"] = validateData(this.value, 3);
+	};
+
+	// submit
+	document.newUser.onsubmit = function () {
+		if (error_array["first_name"] || error_array["last_name"] || error_array["user_name"] || error_array["password"]) {
+			return false;
+		} else {
+			doSignUp();
+			document.getElementById("new-user-inputs").reset();
+			return false;
+		}
+	}
+
+};
+
 // <-------------------- LOUGOUT USER --------------------->
 function doLogout() {
 	console.log(this.firstName);
@@ -150,7 +319,6 @@ function addContact() {
 	let newEmail = document.getElementById("addEmailText").value;
 	document.getElementById("addContactResult").innerHTML = "";
 
-
 	let tmp = {
 		firstName: newFirstName, lastName: newLastName,
 		phone: newPhoneNumber, email: newEmail, userId: userId
@@ -166,11 +334,13 @@ function addContact() {
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("searchContactText").value = newFirstName;
+				searchContact();
+				document.getElementById("searchContactText").value = "";
+
 				document.getElementById("addContactResult").innerHTML = "Contact has been added!";
 				setTimeout(function () {
 					document.getElementById("addContactResult").innerHTML = "";
-				}, 3000);
-				setTimeout(function () {
 					clearForm();
 				}, 3000);
 			}
@@ -182,65 +352,193 @@ function addContact() {
 	}
 
 }
-
 // ADD CONTACT HELPER FUNCTIONS
 
 function clearForm() {
 	let form = document.getElementById("adding-contact");
-
-	while (form.firstChild) {
-		form.removeChild(form.firstChild);
-	}
-	form.style.setProperty("border", "none");
-	form.style.setProperty("margin-bottom", "0");
-	form.classList.remove('contact-border');
+	form.style.setProperty("content-visibility", "hidden");
+	form.style.removeProperty("background-color", "none");
+	form.style.removeProperty("border");
+	form.style.removeProperty("box-shadow");
+	form.style.removeProperty("margin-bottom");
 }
 
 function appendContactForm() {
-	var htmlContent = `
-        <section id="add-contact-header">
-            <p>New Contact Information</p>
-        </section>
 
-        <div id="add-user-inputs">
-            <div>
-                <label for="addFirstNameText">First Name </label>
-                <input type="text" id="addFirstNameText" placeholder="First Name" required>
-            </div>
+	document.newContact.reset();
 
-            <div>
-                <label for="addLastNameText">Last Name </label>
-                <input type="text" id="addLastNameText" placeholder="Last Name" required>
-            </div>
-
-            <div>
-                <label for="addPhoneNumberText">Phone </label>
-                <input type="tel" id="addPhoneNumberText" placeholder="Phone Number">
-            </div>
-            <div>
-                <label for="addEmailText">Email </label>
-                <input type="email" id="addEmailText" placeholder="Email">
-            </div>
-        </div>
-
-        <div id="add-contact-button">
-            <button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact
-                <svg class="add-contact-svg" width="16" height="16" viewBox="0 0 14 14" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M3.25369 4.36099C3.25369 2.78091 4.5346 1.5 6.11468 1.5C7.69477 1.5 8.97567 2.78091 8.97567 4.36099C8.97567 4.58593 8.94986 4.80389 8.90135 5.01244C8.8075 5.41588 9.05848 5.81902 9.46192 5.91286C9.86537 6.00671 10.2685 5.75573 10.3623 5.35229C10.4366 5.03311 10.4757 4.70114 10.4757 4.36099C10.4757 1.95248 8.52319 0 6.11468 0C3.70617 0 1.75369 1.95248 1.75369 4.36099C1.75369 4.70114 1.79278 5.03311 1.86702 5.35229C1.96087 5.75573 2.364 6.00671 2.76744 5.91286C3.17089 5.81902 3.42186 5.41588 3.32802 5.01244C3.27951 4.80389 3.25369 4.58593 3.25369 4.36099ZM4.88338 9.69608V4.25939C4.88338 3.56385 5.44723 3 6.14277 3C6.83831 3 7.40215 3.56385 7.40215 4.25938V8.3363H9.8659C11.2869 8.33631 12.4389 9.48828 12.4389 10.9093V13C12.4389 13.5523 11.9912 14 11.4389 14H4.83147C4.50232 14 4.19424 13.838 4.00765 13.5669L3.24366 12.4565C2.54067 11.4348 3.12077 10.0278 4.33954 9.79843L4.88338 9.69608Z"
-                        fill="#05435e" />
-                </svg>
-            </button>
-        </div><span id="addContactResult"></span>
-    `;
-	document.getElementById("adding-contact").classList.add("contact-border");
-	var targetElement = document.getElementById("adding-contact");
-	targetElement.innerHTML = htmlContent;
+	let form = document.getElementById("adding-contact");
+	form.style.setProperty("content-visibility", "visible");
+	form.style.setProperty("background-color", "white");
+	form.style.setProperty("border", "1px solid #05445E");
+	form.style.setProperty("box-shadow", "0px 16px 48px 0px rgba(0, 0, 0, 0.6)");
+	form.style.setProperty("margin-bottom", "3em");
 }
+function validateContactData(string, qNum) {
+	let correct;
+	let incorrect;
+	// FORM INPUTS
 
+	switch (qNum) {
+		case 0: // first name
+			correct = /^[A-Z][a-z]*$/;
+			incorrect = [/\d/, /^[A-Z]/];
 
+			let firstName = document.getElementById('addFirstNameText');
+			if (string.length > 0 && string.match(correct)) {
+				setSuccess(firstName);
+				return false; // returns false if valid
+			}
+			else {
+				if (string.length == 0) {
+					setError(firstName, 'First Name is required');
+					return true;
+				} else {
+					if (string.match(incorrect[0]) && !(string.match(incorrect[1]))) {
+						setError(firstName, 'First letter capitalization & letters only');
+						return true;
+					}
+					else if (!(string.match(incorrect[1]))) {
+						setError(firstName, 'Capitalize the first letter');
+						return true;
+					}
+					else if (string.match(incorrect[0])) {
+						setError(firstName, 'Letters only please');
+						return true;
+					}
+				}
+			}
+			break;
+		case 1: // last name
+			correct = /^[A-Z][a-z ']*$/;
+			incorrect = [/\d/, /^[A-Z]/];
 
+			let lastName = document.getElementById('addLastNameText');
+			if (string.length > 0 && string.match(correct)) {
+				setSuccess(lastName);
+				return false; // returns false if valid
+			} else {
+				if (string.length == 0) {
+					setError(lastName, 'Last Name is required');
+					return true;
+				} else {
+					if (string.match(incorrect[0]) && !(string.match(incorrect[1]))) {
+						setError(lastName, 'First letter capitalization & letters only');
+						return true;
+					}
+					else if (!(string.match(incorrect[1]))) {
+						setError(lastName, 'Capitalize the first letter!');
+						return true;
+					}
+					else if (string.match(incorrect[0])) {
+						setError(lastName, 'Letters, spaces, or apostrophes only');
+						return true;
+					}
+				}
+			}
+			break;
+		case 2: // PHONE NUM
+			correct = [/^\d{3}\ \d{3}\-\d{4}$/, /[0-9\-\_]+/];
+			let currPhone = document.getElementById("addPhoneNumberText");
+
+			if (string.length > 0 && (string.match(correct[0])) && string.match(correct[1])) {
+				setSuccess(currPhone);
+				return false; // returns false if valid
+			} else {
+				if (string.length == 0) {
+					setError(currPhone, 'Enter a Phone Number');
+					return true;
+				} else {
+					if (!(string.match((correct[0]))) && !(string.match(correct[1]))) {
+						setError(currPhone, 'Numbers only -> 012 345-6789');
+						return true;
+					}
+					else if (!(string.match((correct[0])))) {
+						setError(currPhone, 'format -> xxx xxx-xxxx');
+						return true;
+					}
+					else if (!(string.match(correct[1]))) {
+						setError(currPhone, 'Numbers only');
+						return true;
+					}
+				}
+			}
+			break;
+		case 3: // EMAIL
+			correct = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/; // ex. test@gmail.com
+			let parts = [/^[\w-\.]/, // can't be empty before the @ sign
+				/@/, // must include @ sign
+				/([\w-]+\.)/, // must include a valid email domain -> not empty
+				/[\w-]{2,4}$/]; // must a valid domain
+
+			let emailAddress = document.getElementById("addEmailText");
+
+			if (string.length > 0 && (string.match(correct))) {
+
+				setSuccess(emailAddress);
+				return false; // returns false if valid
+			} else {
+				if (string.length == 0) {
+					setError(emailAddress, 'Please enter a valid email address')
+					return true;
+				} else {
+					if (!(string.match(parts[0]))) {
+						setError(emailAddress, 'Include your email username');
+						return true;
+					}
+					else if (!(string.match(parts[1]))) {
+						setError(emailAddress, 'Include an @ sign');
+						return true;
+					}
+					else if (!(string.match(parts[2]))) {
+						setError(emailAddress, 'Enter a valid email server');
+						return true;
+					}
+					else if (!(string.match(parts[3]))) {
+						setError(emailAddress, 'Must be a valid domain');
+						return true;
+					}
+				}
+			}
+			break;
+		default: ;
+	}
+}
+// form setup
+function setupContactForm() {
+
+	let error_array = new Array(); // handles all of the errors found and doesn't submit until valid
+
+	// first question - first name
+	document.newContact.newFName.onblur = function () {
+		error_array["first_name"] = validateContactData(this.value, 0);
+	};
+
+	// second question - last name
+	document.newContact.newLName.onblur = function () {
+		error_array["last_name"] = validateContactData(this.value, 1);
+	};
+
+	// third question - phone
+	document.newContact.currPhone.onblur = function () {
+		error_array["phone"] = validateContactData(this.value, 2);
+	};
+	// fourth question - email
+	document.newContact.currEmail.onblur = function () {
+		error_array["email"] = validateContactData(this.value, 3);
+	};
+
+	// submit
+	document.newContact.onsubmit = function () {
+		if (error_array["first_name"] || error_array["last_name"] || error_array["phone"] || error_array["email"]) {
+			return false;
+		} else {
+			addContact();
+			document.getElementById("add-user-inputs").reset();
+			return false;
+		}
+	}
+};
 
 // <-------------------- SEARCH (READ) CONTACT(s) --------------------->
 function searchContact() {
@@ -725,3 +1023,5 @@ function disableSafariAnimations() {
 	}
 }
 
+window.addEventListener("load", setupForm, false);
+window.addEventListener("load", setupContactForm, false);

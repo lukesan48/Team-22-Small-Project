@@ -77,38 +77,43 @@
             </li>
         </ul>
     </nav>
+
     <div class="main-content action-area">
         <section id="user-signup">
             <section id="signup-header">
                 <p>but first, lets get to <span id="know-text">know</span> you!</p>
             </section>
 
-            <div id="new-user-inputs">
-                <div>
-                    <label for="name1"> First Name </label>
-                    <input type="text" id="name1" placeholder="Your First Name" required />
-                </div>
-                <div>
-                    <label for="name2"> Last Name </label>
-                    <input type="text" id="name2" placeholder="Your Last Name" required>
-                </div>
-                <div>
-                    <label for="signUpName"> Username </label>
-                    <input type="text" id="signUpName" placeholder="Create a username" required />
-                </div>
-                <div>
-                    <label for="signUpPassword"> Password </label>
-                    <input type="password" id="signUpPassword" placeholder="Create a secure password" required>
-                </div>
+            <div>
+                <form id="new-user-inputs" action="/" name="newUser">
+                    <div class="input-control">
+                        <label for="name1"> First Name </label>
+                        <input type="text" id="name1" placeholder="Your First Name" name="fName" required />
+                        <div id="name1-err" class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <label for="name2"> Last Name </label>
+                        <input type="text" id="name2" name="lName" placeholder="Your Last Name" required>
+                        <div id="name2-err" class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <label for="signUpName"> Username </label>
+                        <input type="text" id="signUpName" name="userName" placeholder="Create a username" required />
+                        <div id="user-err" class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <label for="signUpPassword"> Password </label>
+                        <input type="password" id="signUpPassword" name="password"
+                            placeholder="Create a secure password" required>
+                        <div id="pass-error" class="error"></div>
+                    </div>
             </div>
             <section>
 
                 <!-- WHERE USER GETS ERROR MESSAGES -->
-                <section id="error-signup-section">
-                </section>
 
                 <div id="log-in-button">
-                    <button type="button" id="signUpButton" class="buttons" onclick="doSignUp()"> &rarr; Sign Up
+                    <button type="submit" id="signUpButton" class="buttons"> &rarr; Sign Up
                     </button>
                 </div><span id="signUpResult"></span>
             </section>
@@ -129,7 +134,7 @@
                 </a>
             </div>
         </section>
-
+        </form>
     </div>
 
 </body>
