@@ -1,4 +1,4 @@
-# <h1> <a style="color: white; "}" href="http://cop4331-22.xyz"> MyContact</a></h1> 
+# <h1> MyContact </h1> 
 
 Contact Manager Web App using LAMP Stack
 COP 4331 Small Project - Summer 2024
