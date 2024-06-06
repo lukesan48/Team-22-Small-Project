@@ -1,10 +1,11 @@
 # <h1> MyContact </h1> 
 <hr>
-Contact Manager Web App using LAMP Stack
-COP 4331 Small Project - Summer 2024
-
+<p>COP 4331 Small Project - Summer 2024</p>
+<p>Contact Manager Web App using LAMP Stack</p>
+<br />
+<hr />
 <b>Demo</b> &rarr; http://cop4331-22.xyz
- 
+<br />
 <h3>MyContact Team</h3>
 <ul>
   <li><b>Project Manager:</b> <a href="http://linkedin.com/in/luke-samuel-sandoval" target="_blank">Luke Sandoval</a> </li>
