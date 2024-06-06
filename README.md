@@ -2,7 +2,6 @@
 <hr>
 <p>COP 4331 Small Project - Summer 2024</p>
 <p>Contact Manager Web App using LAMP Stack</p>
-<br />
 <hr />
 <b>Demo</b> &rarr; http://cop4331-22.xyz
 <br />
